@@ -200,6 +200,43 @@ h1 em{font-style:normal;background:linear-gradient(135deg,var(--saffron),var(--g
 footer{border-top:1px solid var(--line);padding:24px 0;color:#999;font-size:11.5px;text-align:center;line-height:1.7}
 footer strong{color:var(--saffron)}
 
+/* READY TO SEND STYLES */
+.rts-tabs{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 20px}
+.rts-tab{border:1.5px solid #DDD8D0;background:white;color:#666;border-radius:9px;padding:9px 14px;font-size:12px;font-weight:800;cursor:pointer;transition:all .2s}
+.rts-tab:hover,.rts-tab.active{background:linear-gradient(135deg,var(--emerald),#1E9050);border-color:var(--emerald);color:white;box-shadow:0 3px 12px rgba(39,174,96,.3)}
+.send-card{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--card-shadow);margin-bottom:14px}
+.send-card-header{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.send-card-header .sc-icon{font-size:22px}
+.send-card-header h3{font-size:14px;font-weight:700;margin:0 0 3px}
+.send-card-header p{font-size:11.5px;color:var(--muted);margin:0}
+.send-body{padding:16px 18px}
+.content-block{background:#F8F4EF;border-radius:10px;padding:14px 16px;margin-bottom:12px;position:relative}
+.content-block .cb-label{font-size:9.5px;font-weight:900;letter-spacing:.8px;color:var(--saffron);text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.content-block .cb-text{font-size:13px;line-height:1.7;color:#2A2A3E;white-space:pre-wrap}
+.content-block .cb-copy{position:absolute;top:10px;right:10px;background:white;border:1px solid var(--line);border-radius:7px;padding:5px 10px;font-size:11px;font-weight:700;cursor:pointer;color:var(--ink);transition:all .2s}
+.content-block .cb-copy:hover{background:var(--saffron);color:white;border-color:var(--saffron)}
+.hashtag-box{background:linear-gradient(135deg,#EEF2FF,#E0E8FF);border:1px solid #C7D5FF;border-radius:10px;padding:12px 14px;margin-top:10px}
+.hashtag-box .hb-label{font-size:10px;font-weight:900;color:var(--royal);letter-spacing:.5px;text-transform:uppercase;margin-bottom:7px}
+.hashtag-box .hb-tags{font-size:12px;color:var(--royal);line-height:1.8;word-break:break-word}
+.wa-green-box{background:linear-gradient(135deg,#E8F8EE,#D4F0DF);border:1px solid #A8E6C0;border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.wa-green-box .wg-label{font-size:10px;font-weight:900;color:#145A32;letter-spacing:.5px;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:5px}
+.wa-green-box .wg-text{font-size:13px;line-height:1.7;color:#1A4A2E}
+.send-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+
+/* INFOGRAPHIC STYLES */
+.info-type-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:20px}
+.info-type-card{background:white;border:1px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;transition:all .2s;text-align:center}
+.info-type-card:hover,.info-type-card.itc-active{border-color:var(--saffron);background:#FFF8F0;box-shadow:0 4px 15px rgba(255,107,53,.15)}
+.info-type-card .itc-icon{font-size:32px;margin-bottom:8px}
+.info-type-card h3{font-size:13px;font-weight:700;margin:0 0 5px}
+.info-type-card p{font-size:11px;color:var(--muted);margin:0;line-height:1.5}
+.info-prompt-area{display:none}
+.info-prompt-area.active{display:block}
+@media(max-width:700px){
+  .send-grid{grid-template-columns:1fr}
+  .info-type-grid{grid-template-columns:repeat(2,1fr)}
+}
+
 /* RESPONSIVE */
 @media(max-width:1100px){
   .shell{grid-template-columns:220px minmax(0,1fr)}
@@ -248,6 +285,8 @@ footer strong{color:var(--saffron)}
     <a href="#builder">🧩 My Campaign Builder</a>
     
     <div class="group">🎨 CREATE CONTENT</div>
+    <a href="#sendready">✉️ Ready-to-Send Content</a>
+    <a href="#infographics">📊 Infographic Prompts</a>
     <a href="#greetings">💌 Festival Greetings</a>
     <a href="#visuals">🖼️ Posters & Creatives</a>
     <a href="#video">🎬 Reels & Videos</a>
@@ -464,6 +503,69 @@ footer strong{color:var(--saffron)}
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- READY TO SEND CONTENT BANK -->
+    <section id="sendready" class="section">
+      <div class="secthead-row secthead">
+        <div>
+          <h2>✉️ Ready-to-Send Content Bank</h2>
+          <p>AI tool kholi, copy kiya, paste kiya, bhej diya. Ye content sirf prompts nahi — actual ready messages, captions, aur hashtags hain jo aap directly use ya lightly customize karke bhej sakte ho.</p>
+        </div>
+        <span class="count-badge">6 Festival Sets</span>
+      </div>
+
+      <div class="trainer-says">
+        <div class="trainer-avatar">🎓</div>
+        <div class="trainer-text">
+          <strong>Trainer Says — Copy, Customize, Send</strong>
+          <p>Yahan jo content hai wo <b>80% ready hai</b> — sirf apna company name, offer, aur city add karo. <b>[SQUARE BRACKETS]</b> mein jo bhi hai woh replace karo apni actual details se. Baki sab as-is use kar sakte ho. Har set mein WhatsApp message, Instagram caption, aur hashtags — sab included.</p>
+        </div>
+      </div>
+
+      <div class="rts-tabs" id="rtsTabs">
+        <button class="rts-tab active" onclick="showRTS('diwali',this)">🪔 Diwali</button>
+        <button class="rts-tab" onclick="showRTS('dhanteras',this)">🪙 Dhanteras</button>
+        <button class="rts-tab" onclick="showRTS('newyear',this)">🎆 New Year</button>
+        <button class="rts-tab" onclick="showRTS('holi',this)">🎨 Holi</button>
+        <button class="rts-tab" onclick="showRTS('independence',this)">🇮🇳 Independence Day</button>
+        <button class="rts-tab" onclick="showRTS('womensday',this)">👩 Women's Day</button>
+      </div>
+
+      <div id="rtsContent"></div>
+    </section>
+
+    <!-- INFOGRAPHIC SECTION -->
+    <section id="infographics" class="section">
+      <div class="secthead-row secthead">
+        <div>
+          <h2>📊 Infographic Prompts — By Industry</h2>
+          <p>Educational infographics jo log actually save aur forward karte hain. Generic "5 tips" nahi — aapki specific industry ke liye specific, useful content.</p>
+        </div>
+        <span class="count-badge">9 Industry Sets</span>
+      </div>
+
+      <div class="trainer-says">
+        <div class="trainer-avatar">🎓</div>
+        <div class="trainer-text">
+          <strong>Trainer Insight — The Most Shared Content Type in India</strong>
+          <p>WhatsApp pe <b>educational infographics sabse zyada forward hote hain</b> — logo ko lagta hai wo kuch useful share kar rahe hain. Ek jeweller ka "5 Signs of Pure Gold" infographic uske Diwali ad se 10x zyada reach karega. <b>Teach karo, trust milega — phir automatically sale hogi.</b></p>
+        </div>
+      </div>
+
+      <div class="info-type-grid" id="infoTypeGrid">
+        <div class="info-type-card itc-active" onclick="showInfoPrompt('garments',this)"><div class="itc-icon">👗</div><h3>Garments & Textiles</h3><p>Fabric quality, care tips, buying guides</p></div>
+        <div class="info-type-card" onclick="showInfoPrompt('jewellery',this)"><div class="itc-icon">💎</div><h3>Jewellery</h3><p>Gold purity, hallmark, buying tips</p></div>
+        <div class="info-type-card" onclick="showInfoPrompt('food',this)"><div class="itc-icon">🍽️</div><h3>Food & Hospitality</h3><p>Recipes, hygiene, festive menus</p></div>
+        <div class="info-type-card" onclick="showInfoPrompt('solar',this)"><div class="itc-icon">☀️</div><h3>Solar & Energy</h3><p>Savings calculator, subsidy guide</p></div>
+        <div class="info-type-card" onclick="showInfoPrompt('realestate',this)"><div class="itc-icon">🏗️</div><h3>Real Estate</h3><p>Buying guide, RERA, loan tips</p></div>
+        <div class="info-type-card" onclick="showInfoPrompt('ca',this)"><div class="itc-icon">⚖️</div><h3>CA & Consulting</h3><p>Tax tips, compliance calendar</p></div>
+        <div class="info-type-card" onclick="showInfoPrompt('it',this)"><div class="itc-icon">💻</div><h3>IT & Tech</h3><p>Productivity tips, digital guide</p></div>
+        <div class="info-type-card" onclick="showInfoPrompt('manufacturing',this)"><div class="itc-icon">🏭</div><h3>Manufacturing</h3><p>Quality standards, B2B buying guide</p></div>
+        <div class="info-type-card" onclick="showInfoPrompt('retail',this)"><div class="itc-icon">🛍️</div><h3>Retail & D2C</h3><p>Gifting guide, product care, reviews</p></div>
+      </div>
+
+      <div id="infoPromptArea"></div>
     </section>
 
     <!-- FESTIVAL GREETINGS -->
@@ -1854,11 +1956,613 @@ if ('IntersectionObserver' in window) {
   navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean).forEach(s => obs.observe(s));
 }
 
+// ===== READY TO SEND DATA =====
+const rtsData = {
+  diwali: {
+    icon: '🪔', title: 'Diwali Ready-to-Send Content',
+    sets: [
+      {
+        type: 'whatsapp', label: '💬 WhatsApp Broadcast — Pure Greeting (No Offer)',
+        text: `🪔 Is Diwali, roshan ho aapka ghar, aapka kaam, aur aapki zindagi.
+
+[COMPANY NAME] ki taraf se aap sabko aur aapke parivaar ko Diwali ki dher saari shubhkamnaen. 🙏
+
+Aap jaisa vishwaas diya — woh hamare kaam ki sabse badi roshni hai.
+
+Shubh Deepawali! ✨
+— Team [COMPANY NAME], [CITY]`
+      },
+      {
+        type: 'whatsapp', label: '💬 WhatsApp Broadcast — Greeting + Business Reminder',
+        text: `🪔 Diwali Mubarak! Aap aur aapke ghar mein khushiyan, sehat, aur samridhi bani rahe.
+
+[COMPANY NAME] mein hum is Diwali pe naya collection/naya season taiyaar karke baithe hain — [SHORT DESCRIPTION OF WHAT'S NEW/AVAILABLE THIS SEASON].
+
+Koi sawaal ho, ya kuch chahiye — seedha WhatsApp karein. 😊
+
+Shubh Deepawali! 🪔
+[COMPANY NAME] | [CITY] | [PHONE/WEBSITE]`
+      },
+      {
+        type: 'instagram', label: '📸 Instagram / Facebook Caption — Emotional',
+        text: `🪔 Diwali sirf diye jalane ka din nahi...
+
+Yeh woh din hai jab gharon mein roshni hoti hai, rishton mein meethas hoti hai, aur dil mein ek ummeed nayi hoti hai.
+
+[COMPANY NAME] ki taraf se aap sabko — Shubh Deepawali! 🙏✨
+
+[ONE LINE ABOUT YOUR BUSINESS VALUE — e.g. "Hamare [PRODUCT/SERVICE] mein bhi wahi care aur dedication hai jo aap apne ghar mein laate ho."]
+
+—
+[COMPANY NAME] | [CITY]
+[WEBSITE]`
+      },
+      {
+        type: 'instagram', label: '📸 Instagram Caption — Short & Punchy',
+        text: `Ek diya kaafi hai andhera mitane ke liye. 🪔
+Ek bharosa kaafi hai rishta banane ke liye.
+
+[COMPANY NAME] — Aapka [INDUSTRY] partner.
+
+Shubh Deepawali! ✨
+
+#ShubhDeepawali #Diwali2024 #[YourCity]Business #[YourIndustry]`
+      },
+      {
+        type: 'linkedin', label: '💼 LinkedIn Post — Professional + Warm',
+        text: `This Diwali, I'm grateful.
+
+Grateful for every customer who trusted [COMPANY NAME] with their [PRODUCT/SERVICE] needs.
+Grateful for our team who shows up with care, every single day.
+Grateful for partners who made growth possible this year.
+
+[ONE GENUINE BUSINESS REFLECTION — e.g. "This year we [TRUE MILESTONE — crossed X clients / launched Y / expanded to Z city]."]
+
+But more than any number — it's the relationships that make this work meaningful.
+
+Wishing you and your family a very Happy Diwali. May the new season bring new opportunities for all of us. 🪔
+
+— [YOUR NAME], [COMPANY NAME]`
+      },
+      {
+        type: 'hashtags', label: '# Hashtag Pack — Diwali',
+        text: `#ShubhDeepawali #Diwali2024 #HappyDiwali #DiwaliWishes #FestiveVibes #DiwaliCelebration #IndianFestival #[YourCity]Business #[YourIndustry]India #SMEIndia #MadeInIndia #IndianBusiness #Diwali #Deepawali #[YourBrandName]`
+      }
+    ]
+  },
+  dhanteras: {
+    icon: '🪙', title: 'Dhanteras Ready-to-Send Content',
+    sets: [
+      {
+        type: 'whatsapp', label: '💬 WhatsApp — Dhanteras Greeting (All Businesses)',
+        text: `🪙 Dhanteras ki hardik shubhkamnaen!
+
+Aaj ke shubh din, Maa Lakshmi aapke ghar aur kaam mein samridhi, sukh, aur khushhaali leke aayen. 🙏
+
+Aapke vishwaas ke liye teh-e-dil se shukriya.
+
+— [COMPANY NAME], [CITY]
+📱 [PHONE] | 🌐 [WEBSITE]`
+      },
+      {
+        type: 'whatsapp', label: '💬 WhatsApp — Jeweller / Gold Business Special',
+        text: `🪙 Dhanteras Mubarak!
+
+Aaj sone ki khareedari sabse shubh mani jaati hai — aur hum chahte hain ki aapki yeh khareedari hamesha yaadgaar rahe.
+
+[COMPANY NAME] mein milega:
+✅ BIS Hallmarked jewellery
+✅ Transparent making charges
+✅ [SPECIAL OFFER IF ANY]
+
+📍 [SHOP ADDRESS + LANDMARK]
+📱 [PHONE NUMBER]
+⏰ Aaj [OPENING HOURS] tak khule hain`
+      },
+      {
+        type: 'instagram', label: '📸 Instagram Caption — Dhanteras',
+        text: `आज का दिन शुभ है। 🪙
+
+धनतेरस पर Maa Lakshmi aapke ghar mein samridhi leke aayen. Aapke ghar ki har khushhi mein hum bhi shamil hain. 🙏
+
+[COMPANY NAME] ki taraf se — Shubh Dhanteras!
+
+[WEBSITE] | [CITY]`
+      },
+      {
+        type: 'hashtags', label: '# Hashtag Pack — Dhanteras',
+        text: `#Dhanteras2024 #ShubhDhanteras #DhanterasSpecial #GoldShopping #Dhanteras #DhanterasWishes #Lakshmi #FestiveSeason #Diwali2024 #[YourCity]Shopping #[YourBrand] #IndianFestival #Samridhi`
+      }
+    ]
+  },
+  newyear: {
+    icon: '🎆', title: 'New Year Ready-to-Send Content',
+    sets: [
+      {
+        type: 'whatsapp', label: '💬 WhatsApp — New Year Greeting (Universal)',
+        text: `🎆 Naya saal, nayi umeedein, naye mauke!
+
+[COMPANY NAME] ki taraf se aap sabko Happy New Year 2025! 🙏
+
+2024 mein aapne jo bharosa diya — uske liye dil se shukriya. 2025 mein hum aapki sewa aur behtar tarike se karne ka waada karte hain.
+
+Nayi saal mubarak ho! 🥳
+— Team [COMPANY NAME]
+[WEBSITE] | [CITY]`
+      },
+      {
+        type: 'whatsapp', label: '💬 WhatsApp — New Year + Business Goal Angle',
+        text: `Happy New Year 2025! 🎆
+
+Naya saal = naye plans, naye goals, aur naye opportunities.
+
+Is saal [COMPANY NAME] mein kya naya aane wala hai:
+→ [NEW PRODUCT / SERVICE / CITY EXPANSION — ONE GENUINE THING]
+
+Aap bhi agar [RELEVANT BUSINESS GOAL — e.g. "apni production cost kam karna chahte hain / apne store ke liye quality products dhundh rahe hain"] — toh is saal humse zaroor baat karein.
+
+Nayi saal ki hardik shubhkamnaen! 🙏
+[COMPANY NAME] | [PHONE] | [WEBSITE]`
+      },
+      {
+        type: 'instagram', label: '📸 Instagram — New Year Reflection Post',
+        text: `2024 → 2025 ✨
+
+This year taught us:
+[ONE GENUINE LESSON YOUR BUSINESS LEARNED IN 2024]
+
+We're grateful for:
+[ONE GENUINE THANKS — customers / team / city / opportunity]
+
+In 2025, we're committed to:
+[ONE REAL IMPROVEMENT OR GOAL]
+
+Happy New Year from Team [COMPANY NAME]! 🎆
+[CITY] | [WEBSITE]`
+      },
+      {
+        type: 'linkedin', label: '💼 LinkedIn — New Year B2B Message',
+        text: `As 2024 closes, I want to pause and say thank you.
+
+To every client who chose [COMPANY NAME] — you didn't just give us business, you gave us purpose.
+
+[ONE SPECIFIC THING THAT STOOD OUT THIS YEAR — a project, a challenge overcome, a milestone reached. Real only.]
+
+2025 brings [ONE GENUINE BUSINESS FOCUS — expansion / new product / better service / new city].
+
+Here's to building more, learning more, and doing better together.
+
+Happy New Year! 🎆
+— [YOUR NAME], [DESIGNATION], [COMPANY NAME]`
+      },
+      {
+        type: 'hashtags', label: '# Hashtag Pack — New Year',
+        text: `#HappyNewYear2025 #NewYear2025 #NewBeginnings #2025Goals #[YourIndustry]2025 #[YourCity]Business #IndianSME #BusinessGrowth #NewYearNewGoals #Grateful2024 #[YourBrandName] #SmallBusiness #MadeInIndia`
+      }
+    ]
+  },
+  holi: {
+    icon: '🎨', title: 'Holi Ready-to-Send Content',
+    sets: [
+      {
+        type: 'whatsapp', label: '💬 WhatsApp — Holi Greeting (All Businesses)',
+        text: `🎨 Rang aur khushiyon se bhara ho aapka Holi!
+
+Jaise Holi mein hazaron rang milke ek tyohaar banate hain — usi tarah aap jaiso ke vishwaas ne [COMPANY NAME] ko jo banaya hai, uske liye dil se shukriya. 🙏
+
+[COMPANY NAME] ki taraf se aap sabko — Happy Holi! 🌈
+[CITY] | [WEBSITE]`
+      },
+      {
+        type: 'instagram', label: '📸 Instagram — Holi Caption',
+        text: `🌈 Rang birangi Holi ho aapki!
+
+Holi sirf rang nahi — yeh woh din hai jab sab giley-shikwe bhool jaate hain, aur khushiyan baante hain.
+
+[COMPANY NAME] is tarah ke tyohaar mein believe karta hai jab har rishta aur mazboot hota hai. 🙏
+
+Happy Holi! 🎨
+[COMPANY NAME] | [CITY]`
+      },
+      {
+        type: 'hashtags', label: '# Hashtag Pack — Holi',
+        text: `#HappyHoli #Holi2025 #HoliFestival #RangBirangi #HoliHai #Colours #FestivalOfColours #[YourCity]Holi #[YourBrand] #IndianFestival #HoliCelebration #Holi #SpringFestival`
+      }
+    ]
+  },
+  independence: {
+    icon: '🇮🇳', title: 'Independence Day Ready-to-Send Content',
+    sets: [
+      {
+        type: 'whatsapp', label: '💬 WhatsApp — Independence Day Greeting',
+        text: `🇮🇳 Jai Hind!
+
+77 saal ki azaadi — aur har saal India aur aage badh raha hai. Aap bhi is desh ki taraqqui ka ek hissa hain.
+
+[COMPANY NAME] ki taraf se — 15 August ki hardik shubhkamnaen! 
+
+Hum garv se [CITY / INDIA] mein kaam karte hain. 🙏
+
+Happy Independence Day!
+— Team [COMPANY NAME]`
+      },
+      {
+        type: 'instagram', label: '📸 Instagram — Independence Day (Business Pride)',
+        text: `🇮🇳 Jai Hind!
+
+Proud to be an Indian business.
+
+[COMPANY NAME] — [ONE LINE: e.g. "Made in Surat. Serving India." / "15 saal se Indian SMEs ke saath." / "Indian craftsmanship, global quality."]
+
+Happy Independence Day! 🙏
+
+#JaiHind #IndependenceDay2024 #15August #MadeInIndia #[YourCity]Business #ProudIndian`
+      },
+      {
+        type: 'linkedin', label: '💼 LinkedIn — Independence Day + Business Story',
+        text: `Happy Independence Day! 🇮🇳
+
+India is one of the world's most exciting business environments right now — and I feel fortunate to be building here.
+
+[COMPANY NAME] was started with a simple belief: [YOUR GENUINE FOUNDING PURPOSE — 1 sentence, honest].
+
+Today, [ONE REAL ACHIEVEMENT — e.g. "we serve X cities / Y clients / have Z employees"].
+
+Every Indian business owner who builds, employs, and serves is contributing to something larger. Proud to be part of that.
+
+Jai Hind! 🙏
+— [NAME], [COMPANY NAME]`
+      },
+      {
+        type: 'hashtags', label: '# Hashtag Pack — Independence Day',
+        text: `#IndependenceDay2024 #JaiHind #15August #HappyIndependenceDay #MadeInIndia #IndianBusiness #ProudIndian #IndiaAt77 #[YourCity] #[YourIndustry]India #SMEIndia #BuildingIndia`
+      }
+    ]
+  },
+  womensday: {
+    icon: '👩', title: "Women's Day Ready-to-Send Content",
+    sets: [
+      {
+        type: 'whatsapp', label: "💬 WhatsApp — Women's Day Greeting (Genuine)",
+        text: `👩 Happy Women's Day!
+
+Aaj ka din un sab mahilaon ka hai jo har roz amazing kaam karti hain — chahein ghar mein ho, office mein ho, ya apna business chalati hoon.
+
+[COMPANY NAME] ki taraf se — un sab mahilaon ko salaam jo inspire karti hain, lead karti hain, aur badlaav laati hain. 🙏
+
+[IF YOU HAVE WOMEN IN YOUR TEAM: "Hamare team mein bhi kai powerful women hain — [GENUINE MENTION]."]
+
+Happy Women's Day!
+— Team [COMPANY NAME]`
+      },
+      {
+        type: 'instagram', label: "📸 Instagram — Women's Day Post",
+        text: `👩 To every woman who leads, builds, creates, and inspires —
+
+Happy Women's Day! 🌸
+
+[ONE GENUINE SENTENCE about women in your business context — customers, employees, entrepreneurs you serve, or founders.]
+
+[COMPANY NAME] salutes the strength and spirit of every woman today.
+
+#WomensDay2024 #InternationalWomensDay #WomenInBusiness #HappyWomensDay #[YourCity]Women #StrongWomen`
+      },
+      {
+        type: 'hashtags', label: "# Hashtag Pack — Women's Day",
+        text: `#WomensDay2024 #InternationalWomensDay #WomenInBusiness #HappyWomensDay #WomenEmpowerment #SheCan #WomenLeaders #[YourCity]Business #IndianWomen #WomenEntrepreneurs #IWD2024 #[YourBrand]`
+      }
+    ]
+  }
+};
+
+// ===== INFOGRAPHIC PROMPTS DATA =====
+const infoPrompts = {
+  garments: {
+    icon: '👗', title: 'Garments & Textiles — Infographic Prompts',
+    prompts: [
+      { title: '5 Signs of Good Quality Fabric', use: 'Diwali Season / Festive Collection Launch',
+        prompt: `Create an infographic for [GARMENT/TEXTILE COMPANY] titled "5 Signs of Good Quality Fabric — Jo Har Khareedaar Ko Pata Honi Chahiye."
+
+5 genuine, accurate points about fabric quality that customers can check themselves:
+1. Thread count / GSM (explain what is good for which use)
+2. Color fastness — how to check at home
+3. Weave tightness — what to look for
+4. Shrinkage test — what to check before buying
+5. Finish & feel — what quality fabric feels like vs cheap
+
+Design: Each point = icon + 2-line explanation. Colors: [BRAND COLORS / Festive palette].
+Footer: "[COMPANY NAME] — [CITY] | [WEBSITE] | For queries: [PHONE]"
+
+Caption for Instagram/WhatsApp: "Forward this to anyone who shops for [FABRIC TYPE] this season! 🧵 [COMPANY NAME], [CITY]"
+This is educational content. No product promotion inside the infographic — only company name in footer.` },
+      { title: 'How to Care for Festive Sarees / Ethnic Wear', use: 'Post-Purchase / Diwali',
+        prompt: `Create a "Festive Wear Care Guide" infographic for [TEXTILE COMPANY] for [SPECIFIC FABRIC — e.g. silk sarees / cotton kurtas / embroidered lehenga].
+
+6-point care guide (accurate, specific to fabric type):
+1. Washing method (hand wash / dry clean only / machine settings)
+2. Water temperature & detergent type
+3. Drying method (shade dry, do NOT tumble dry, etc.)
+4. Ironing — temperature, reverse side, use of cloth
+5. Storage — folding method, muslin wrap, what to avoid
+6. Stain removal — what to do immediately if stained
+
+Format: Clean, saveable graphic. 1 icon per tip. Max 12 words per tip.
+Purpose: Customers will SAVE this and SHARE it — brand in footer gets recalled.
+Footer: "[COMPANY NAME] | Expert [FABRIC] specialists since [YEAR] | [CITY] | [WEBSITE]"` }
+    ]
+  },
+  jewellery: {
+    icon: '💎', title: 'Jewellery — Infographic Prompts',
+    prompts: [
+      { title: '5 Things to Check Before Buying Gold Jewellery', use: 'Pre-Dhanteras / Akshaya Tritiya',
+        prompt: `Create an infographic for [JEWELLERY BUSINESS] titled "5 Cheezein Check Karein Gold Khareedne Se Pehle."
+
+5 accurate, consumer-helpful points:
+1. BIS Hallmark — what it means, where to find the stamp, what each digit means
+2. Making charges — what is reasonable, how to compare
+3. Karat purity — 22K vs 24K vs 18K, which is better for what purpose
+4. Buy-back policy — what to ask before buying
+5. Bill & receipt — why it's important, what must be on it
+
+All information must be accurate. If any changes are pending in regulations, note "verify current norms."
+Footer: "[COMPANY NAME] | [CITY] | [BIS Registration if applicable] | [WEBSITE]"
+Caption: "Ye Dhanteras, samajhdaari se khareedein. Share karein apne ghar mein! 💎 #Dhanteras2024 #SmartShopping"` },
+      { title: 'Gold vs Diamond vs Silver — Festive Gifting Guide', use: 'Diwali / Wedding Season',
+        prompt: `Create a comparison infographic for [JEWELLERY COMPANY] titled "Kya Khareedein Is Festive Season — Gold, Diamond, ya Silver?"
+
+For each metal/gem, cover 4 honest points:
+- Starting price range (₹ range based on current market, note "prices vary")
+- Best occasion to gift
+- Maintenance needed
+- Long-term value
+
+Keep comparison honest — don't push one category. Position your company as the trusted advisor.
+Add: "Still confused? Aayein [SHOP NAME] mein — no pressure consultation free hai."
+Footer: [COMPANY NAME] | [ADDRESS] | [PHONE] | [WEBSITE]` }
+    ]
+  },
+  food: {
+    icon: '🍽️', title: 'Food & Hospitality — Infographic Prompts',
+    prompts: [
+      { title: 'Festival Mithai — Pure vs Adulterated: How to Tell', use: 'Pre-Diwali (Viral Content)',
+        prompt: `Create an educational infographic for [SWEET SHOP / FOOD BUSINESS] titled "Milawati Mithai Kaise Pahchanein — 5 Simple Tests."
+
+5 verified home tests for common adulterations in festive sweets:
+(Research and use only FSSAI-verified tests — e.g. silver foil check, khoya adulteration test, artificial color test)
+
+Each test: What to check, how to check (step-by-step), what result means.
+Add disclaimer: "For confirmed testing, use FSSAI certified lab."
+
+Why this works: You are educating customers to AVOID bad mithai — which positions your business as the trusted, pure alternative.
+Footer: "[COMPANY NAME] — [FSSAI LICENSE NO.] | Pure, homemade mithai since [YEAR] | [CITY] | [PHONE]"
+Caption: "Is Diwali, sirf pure mithai khaayein. Share karein ye guide apne ghar mein! 🍬 #PureMithai #Diwali2024"` },
+      { title: 'Festive Catering Checklist — For Event Organizers', use: 'Wedding / Festival Season',
+        prompt: `Create a "Festival Event Catering Checklist" infographic for [CATERING COMPANY].
+
+8-point checklist for anyone organizing a festive family event / puja / corporate celebration:
+1. Guest count & dietary requirements (collect 2 weeks before)
+2. Menu finalization — auspicious items for festival, vegetarian % confirmed
+3. Serving style — buffet vs plated, equipment needed
+4. Setup time needed before event
+5. Hygiene requirements — food grade gloves, covered transport
+6. Backup quantity (always order 10% extra)
+7. Dessert / mithai arrangement
+8. Post-event cleanup arrangement
+
+Format: Saveable checklist that event hosts will screenshot and use.
+Footer: "Planning a [OCCASION] event? [COMPANY NAME] — [CITY] | [PHONE] | Min booking: [X guests]"` }
+    ]
+  },
+  solar: {
+    icon: '☀️', title: 'Solar & Energy — Infographic Prompts',
+    prompts: [
+      { title: 'PM Surya Ghar Yojana — Complete Guide', use: 'Year-Round / Pre-Budget Season',
+        prompt: `Create an infographic for [SOLAR COMPANY] titled "PM Surya Ghar Muft Bijli Yojana — Aapke Liye Kya Hai? (2024 Guide)"
+
+Sections (all information must be verified from pmsuryaghar.gov.in — do not guess or approximate):
+1. Who is eligible (residential only, owned property, existing electricity connection)
+2. Subsidy slab — [CURRENT OFFICIAL SUBSIDY AMOUNTS by kW capacity]
+3. How to apply — step by step (official portal only)
+4. Documents needed
+5. Timeline — application to installation to benefit
+
+Important: Flag any information that changes frequently (subsidy amounts) and recommend verifying official source before publication.
+Footer: "[COMPANY NAME] — Authorized Solar Installer | [EMPANELLED WITH: DISCOM NAME if applicable] | [CITY] | [PHONE]"
+Caption: "Share this with any homeowner who wants to save on electricity! ☀️ [COMPANY] helps you apply — FREE consultation."` },
+      { title: 'Your Monthly Solar Savings — Visual Calculator', use: 'Always-On Lead Generation',
+        prompt: `Create an "Expected Monthly Savings from Rooftop Solar" infographic for [SOLAR COMPANY] for [CITY/STATE].
+
+Show a simple table/visual for:
+Monthly electricity bill → System size needed → Approx generation → Monthly savings → Payback period
+Example rows: ₹1,000 bill / ₹2,000 bill / ₹3,000+ bill
+
+Use REALISTIC numbers based on [CITY] sunshine hours and actual typical system output.
+Add: "Subsidy further reduces your cost under PM Surya Ghar Yojana."
+Disclaimer: "Actual savings depend on consumption pattern, roof orientation, and local tariff. Get a free site assessment."
+CTA: "WhatsApp us on [NUMBER] for your personalized savings calculation — Free."
+Footer: [COMPANY NAME] | [CITY] | [PHONE] | [WEBSITE]` }
+    ]
+  },
+  realestate: {
+    icon: '🏗️', title: 'Real Estate — Infographic Prompts',
+    prompts: [
+      { title: 'Home Buyer RERA Checklist', use: 'Pre-Launch / Diwali Season',
+        prompt: `Create a "Home Buyer RERA Protection Checklist" infographic for [REAL ESTATE COMPANY].
+
+6 things every home buyer must verify (accurate, RERA-compliant):
+1. RERA registration number — how to verify on state RERA website
+2. Project completion date — registered vs promised
+3. Carpet area disclosure — RERA mandates carpet area, not super built-up
+4. Escrow account — 70% funds must go to designated account
+5. Complaint portal — how to complain if developer delays
+6. Agent RERA number — verify your broker is also registered
+
+All points must be accurate as per RERA Act 2016.
+Footer: "[COMPANY NAME] | RERA Reg No: [YOUR RERA NUMBER] | [CITY] | [WEBSITE]"
+Positioning: You educate buyers to protect themselves — which builds massive trust in your own project.` }
+    ]
+  },
+  ca: {
+    icon: '⚖️', title: 'CA & Professional Services — Infographic Prompts',
+    prompts: [
+      { title: 'Year-End Tax Saving Checklist (Before March 31)', use: 'Jan-March Season',
+        prompt: `Create a "Tax Saving Checklist Before March 31" infographic for [CA FIRM].
+
+8 commonly used tax-saving actions for salaried + business owners (India):
+(Verify all sections and limits from current IT Act — amounts change in Budget):
+1. 80C investments — PPF, ELSS, LIC, EPF (current limit: ₹1.5L — verify)
+2. 80D — Health insurance premium (self + parents — current limits)
+3. NPS — 80CCD(1B) additional ₹50,000
+4. Home loan interest — 24B
+5. HRA — if not already claimed via employer
+6. Advance tax payment — if applicable to avoid interest
+7. Business owners: expense documentation for legitimate deductions
+8. Form 26AS / AIS check for discrepancies
+
+Disclaimer in footer: "Tax laws change every Budget. Consult your CA for personalized advice."
+Footer: "[CA FIRM NAME] | [CITY] | [PHONE] | "For a free 20-min year-end tax review: [CONTACT]"` }
+    ]
+  },
+  it: {
+    icon: '💻', title: 'IT & Tech — Infographic Prompts',
+    prompts: [
+      { title: 'Cyber Security Checklist for Indian SMEs', use: 'Year-Round / Digital Safety Month',
+        prompt: `Create a "Cyber Security Checklist for Indian SMEs" infographic for [IT/TECH COMPANY].
+
+8 practical, actionable points (no jargon):
+1. Two-factor authentication — enable on all business accounts
+2. Password rules — minimum length, never reuse, use password manager
+3. WhatsApp Business — don't click unknown links even if from known contacts
+4. UPI fraud — how to identify fake payment screenshots
+5. Backup — daily backup of business data, one offline copy
+6. Phishing awareness — 3 signs of a fake email / SMS
+7. Software updates — why delaying updates is dangerous
+8. What to do if you suspect a breach — immediate steps
+
+All points must be accurate and India-specific (e.g., include common Indian scam types like KYC fraud, Aadhaar fraud).
+Footer: "[IT COMPANY NAME] | [CITY] | [WEBSITE] | "Free cybersecurity consultation for SMEs: [PHONE]"` }
+    ]
+  },
+  manufacturing: {
+    icon: '🏭', title: 'Manufacturing — Infographic Prompts',
+    prompts: [
+      { title: 'B2B Buyer Guide — How to Evaluate a Manufacturer', use: 'Lead Generation / Trade Shows',
+        prompt: `Create a "How to Evaluate a Manufacturer — 7 Questions to Ask" infographic for [MANUFACTURING COMPANY].
+
+7 genuine, expert questions a B2B buyer should ask any manufacturer:
+1. What is your production capacity — daily/monthly?
+2. Do you have in-house quality testing or outsourced?
+3. What certifications do you hold? (ISO, BIS, industry-specific)
+4. What is your minimum order quantity and lead time?
+5. Do you provide samples before bulk order?
+6. What is your track record on delivery timelines?
+7. What is your after-sales / replacement policy?
+
+This positions [COMPANY NAME] as the expert who teaches buyers what to look for — then you can answer each question for yourself.
+Footer: "[COMPANY NAME] | [CITY] | [PHONE] | "We answer all 7. Call us to find out how." | [WEBSITE]"` }
+    ]
+  },
+  retail: {
+    icon: '🛍️', title: 'Retail & D2C — Infographic Prompts',
+    prompts: [
+      { title: 'Festive Gifting Guide — Price Range Based', use: 'Diwali / New Year / Weddings',
+        prompt: `Create a "Festival Gift Guide" infographic for [RETAIL/D2C BRAND] titled "Har Budget Ke Liye Best Gift Ideas."
+
+4 budget tiers with 2-3 product suggestions each (use YOUR actual products):
+Under ₹500: [YOUR PRODUCTS IN THIS RANGE]
+₹500–₹2,000: [YOUR PRODUCTS]
+₹2,000–₹5,000: [YOUR PRODUCTS]
+₹5,000+: [YOUR PREMIUM PRODUCTS]
+
+For each tier: product name + one-line WHY it makes a good gift.
+Add: "Corporate bulk gifting available — 50+ pieces with customization. WhatsApp: [NUMBER]"
+Footer: [COMPANY NAME] | [WEBSITE] | Delivery: [COVERAGE AREA] | [DELIVERY TIME]
+Caption: "Confused about what to gift this Diwali? Save this! 🎁 [COMPANY NAME] — [WEBSITE]"` }
+    ]
+  }
+};
+
+// ===== RENDER FUNCTIONS =====
+function showRTS(key, btn) {
+  document.querySelectorAll('.rts-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const data = rtsData[key];
+  const host = document.getElementById('rtsContent');
+  host.innerHTML = '';
+
+  data.sets.forEach((set, i) => {
+    const pid = `rts_${key}_${i}`;
+    const isHashtag = set.type === 'hashtags';
+    const el = document.createElement('div');
+    el.className = 'send-card';
+    el.innerHTML = `
+      <div class="send-card-header">
+        <span class="sc-icon">${set.type === 'whatsapp' ? '💬' : set.type === 'instagram' ? '📸' : set.type === 'linkedin' ? '💼' : '#️⃣'}</span>
+        <div><h3>${set.label}</h3><p>${set.type === 'whatsapp' ? 'WhatsApp pe seedha bhej sakte ho — [BRACKETS] replace karo' : set.type === 'instagram' ? 'Instagram / Facebook caption — copy karein' : set.type === 'linkedin' ? 'LinkedIn professional post' : 'Copy karo aur apni post mein add karo'}</p></div>
+      </div>
+      <div class="send-body">
+        <div class="${isHashtag ? 'hashtag-box' : 'wa-green-box'}">
+          <div class="${isHashtag ? 'hb-label' : 'wg-label'}">${isHashtag ? '# Hashtags — Copy & Add' : '📋 Copy & Customize'}</div>
+          <div class="${isHashtag ? 'hb-tags' : 'wg-text'}" id="${pid}">${set.text.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')}</div>
+        </div>
+        <div class="actions"><button class="btn btn-green" onclick="copyRTS('${pid}')">📋 Copy This Content</button></div>
+      </div>`;
+    host.appendChild(el);
+  });
+}
+
+function copyRTS(id) {
+  const el = document.getElementById(id);
+  const text = el.innerText || el.textContent;
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => toast('✅ Content Copied! Paste in WhatsApp / Instagram / LinkedIn'));
+  } else {
+    const t = document.createElement('textarea');
+    t.value = text;
+    document.body.appendChild(t);
+    t.select();
+    try { document.execCommand('copy'); toast('✅ Content Copied!'); } catch(e) {}
+    t.remove();
+  }
+}
+
+function showInfoPrompt(key, el) {
+  document.querySelectorAll('.info-type-card').forEach(c => c.classList.remove('itc-active'));
+  el.classList.add('itc-active');
+  const data = infoPrompts[key];
+  const host = document.getElementById('infoPromptArea');
+  host.innerHTML = `<div class="secthead" style="margin-top:18px"><h2>${data.icon} ${data.title}</h2></div>`;
+  data.prompts.forEach((p, i) => {
+    const pid = `info_${key}_${i}`;
+    const card = document.createElement('div');
+    card.className = 'send-card';
+    card.style.marginBottom = '14px';
+    card.innerHTML = `
+      <div class="send-card-header">
+        <span class="sc-icon">📊</span>
+        <div><h3>${p.title}</h3><p>Best for: <b>${p.use}</b></p></div>
+      </div>
+      <div class="send-body">
+        <div class="notice notice-blue" style="margin-bottom:12px">
+          <b>How to use:</b> Copy this prompt → Paste in ChatGPT / Claude / Gemini → Upload your logo → Get the infographic design brief → Create in Canva or send to designer.
+        </div>
+        <div class="label">INFOGRAPHIC CREATION PROMPT</div>
+        <div class="prompt" id="${pid}">${p.prompt}</div>
+        <div class="actions" style="margin-top:10px">
+          <button class="btn btn-primary" onclick="copyText('${pid}')">📋 Copy Infographic Prompt</button>
+        </div>
+      </div>`;
+    host.appendChild(card);
+  });
+}
+
 // INIT
 showCalendar('q4', document.querySelector('#calTabs .tab'));
 showIndustry('textiles', document.querySelector('#indTabs .tab'));
 showDays('weekly', document.querySelector('#dayTabs .tab'));
 buildChecklist();
+showRTS('diwali', document.querySelector('#rtsTabs .rts-tab'));
+showInfoPrompt('garments', document.querySelector('#infoTypeGrid .info-type-card'));
 </script>
 </body>
 </html>
