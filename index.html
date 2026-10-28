@@ -1,1 +1,1864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>भारत SME Festival Marketing Lab 🪔 | Your AI Marketing Trainer</title>
+<style>
+:root{
+  --saffron:#FF6B35;--saffron-dark:#E55A25;--deep-red:#C0392B;--gold:#F5A623;
+  --gold-light:#FFF3CD;--emerald:#27AE60;--royal:#2C3E8C;--royal-light:#EEF2FF;
+  --ink:#1A1A2E;--muted:#6C6C80;--bg:#F8F4EF;--line:#E8E0D4;--white:#fff;
+  --dark:#0D1117;--card-shadow:0 4px 20px rgba(0,0,0,0.08);
+  --trainer:#FF6B35
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif}
 
+/* TOP BAR */
+.top{height:64px;background:linear-gradient(135deg,var(--deep-red) 0%,var(--saffron) 100%);color:white;display:flex;align-items:center;padding:0 24px;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 3px 15px rgba(0,0,0,0.2)}
+.logo-mark{width:38px;height:38px;background:#ffffff25;border-radius:10px;display:grid;place-items:center;font-size:22px;flex-shrink:0}
+.brand-text{flex:1}.brand-text strong{display:block;font-size:16px;font-weight:800;letter-spacing:-.3px}
+.brand-text span{font-size:11px;opacity:.85}
+.trainer-badge{background:#ffffff20;border:1px solid #ffffff40;border-radius:20px;padding:5px 12px;font-size:11px;font-weight:700;white-space:nowrap}
+
+/* LAYOUT */
+.shell{display:grid;grid-template-columns:268px minmax(0,1fr);min-height:calc(100vh - 64px)}
+
+/* SIDEBAR */
+aside{background:linear-gradient(180deg,#1A0A00 0%,#2C1A00 100%);color:white;padding:16px 10px;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+.sidehead{padding:10px 12px 16px;border-bottom:1px solid #ffffff15;margin-bottom:10px}
+.sidehead .trainer-intro{font-size:12px;opacity:.8;line-height:1.5;margin-top:4px}
+.group{font-size:9.5px;letter-spacing:1.4px;color:#FFB347;font-weight:800;padding:14px 12px 5px;text-transform:uppercase}
+nav a{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:8px;color:rgba(255,255,255,.82);text-decoration:none;font-size:12.5px;font-weight:600;margin:2px 0;transition:all .2s}
+nav a:hover,nav a.active{background:#FF6B3525;color:white;border-left:3px solid var(--saffron)}
+.festival-pulse{width:8px;height:8px;background:#27AE60;border-radius:50%;flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+
+/* MAIN */
+main{min-width:0}
+.crumb{background:white;padding:14px 28px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.content{max-width:1300px;margin:auto;padding:28px 32px 80px}
+
+/* TRAINER CALLOUT BOX */
+.trainer-says{background:linear-gradient(135deg,#FFF8F0 0%,#FFF3E0 100%);border:2px solid var(--gold);border-radius:14px;padding:18px 20px;margin:20px 0;display:flex;gap:14px;align-items:flex-start}
+.trainer-avatar{width:44px;height:44px;background:linear-gradient(135deg,var(--saffron),var(--gold));border-radius:50%;display:grid;place-items:center;font-size:22px;flex-shrink:0;box-shadow:0 3px 10px rgba(255,107,53,.3)}
+.trainer-text strong{display:block;font-size:12px;color:var(--saffron);font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.trainer-text p{margin:0;font-size:13.5px;line-height:1.65;color:#4A3500}
+
+/* HERO */
+.eyebrow{display:inline-flex;align-items:center;gap:6px;border:1px solid #FFB347;background:#FFF8F0;color:#B8460A;font-size:10px;letter-spacing:1px;font-weight:900;padding:7px 12px;border-radius:5px;margin-bottom:14px}
+h1{font-size:clamp(28px,3.5vw,46px);line-height:1.1;letter-spacing:-1.5px;margin:0 0 14px}
+h1 em{font-style:normal;background:linear-gradient(135deg,var(--saffron),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lead{font-size:15.5px;line-height:1.75;color:var(--muted);max-width:880px;margin:0 0 22px}
+.hero{background:linear-gradient(125deg,#fff 0%,#fff 55%,#FFF8F0 100%);border:1px solid var(--line);border-radius:18px;padding:28px;margin-bottom:20px;position:relative;overflow:hidden}
+.hero::before{content:'🪔';position:absolute;right:28px;top:20px;font-size:80px;opacity:.08}
+
+.herofoot{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.chip{font-size:11px;font-weight:800;border-radius:99px;padding:7px 13px;background:linear-gradient(135deg,#FFF0E8,#FFE0CC);color:#8B3A1A;border:1px solid #FFB347}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+.stat{background:white;border:1px solid var(--line);border-radius:13px;padding:16px;text-align:center;box-shadow:var(--card-shadow)}
+.stat b{display:block;font-size:26px;background:linear-gradient(135deg,var(--saffron),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:900}
+.stat span{font-size:11px;color:var(--muted);margin-top:3px;display:block}
+
+/* FESTIVAL COUNTDOWN BANNER */
+.festival-banner{background:linear-gradient(135deg,var(--deep-red),#8B0000);color:white;border-radius:14px;padding:18px 22px;margin:20px 0;display:flex;align-items:center;gap:16px}
+.festival-banner .fest-icon{font-size:36px}
+.festival-banner h3{margin:0 0 4px;font-size:16px}
+.festival-banner p{margin:0;font-size:12.5px;opacity:.85}
+.countdown-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.cfest{background:#ffffff20;border:1px solid #ffffff30;border-radius:8px;padding:5px 11px;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s}
+.cfest:hover,.cfest.active{background:white;color:var(--deep-red)}
+
+/* SECTIONS */
+.section{margin-top:40px;scroll-margin-top:90px}
+.secthead{margin:0 0 18px}
+.secthead h2{margin:0 0 5px;font-size:22px;letter-spacing:-.4px;display:flex;align-items:center;gap:8px}
+.secthead p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+.secthead-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.count-badge{background:var(--saffron);color:white;font-size:10px;font-weight:800;border-radius:99px;padding:4px 10px;white-space:nowrap}
+
+/* GRID & CARDS */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--card-shadow);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.ctop{display:flex;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line);align-items:flex-start}
+.ico{width:42px;height:42px;flex-shrink:0;border-radius:11px;display:grid;place-items:center;font-size:22px}
+.ico-saffron{background:linear-gradient(135deg,#FFF0E8,#FFD4BB)}
+.ico-gold{background:linear-gradient(135deg,#FFFBE8,#FFE9A0)}
+.ico-green{background:linear-gradient(135deg,#E8F8EE,#B8EDD0)}
+.ico-blue{background:linear-gradient(135deg,#EEF2FF,#C7D5FF)}
+.ctop h3{font-size:14.5px;margin:1px 0 5px;font-weight:700}
+.ctop p{font-size:12px;line-height:1.5;color:var(--muted);margin:0}
+.cbody{padding:16px 18px}
+.label{font-size:10px;letter-spacing:.8px;color:#888;font-weight:800;margin-bottom:8px;text-transform:uppercase}
+
+/* PROMPT BOX */
+.prompt{white-space:pre-wrap;overflow:auto;max-height:280px;background:var(--dark);color:#E2E8F0;border-radius:10px;padding:14px 16px;font:12px/1.7 'Cascadia Code','Fira Code',ui-monospace,monospace;border:1px solid #30363D}
+.prompt-label{font-size:10px;color:#7C8395;margin-bottom:5px;letter-spacing:.5px;font-weight:700}
+
+/* ACTIONS */
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.btn{border:0;border-radius:9px;padding:10px 16px;font-size:12px;font-weight:800;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:linear-gradient(135deg,var(--saffron),var(--saffron-dark));color:white;box-shadow:0 3px 12px rgba(255,107,53,.3)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(255,107,53,.4)}
+.btn-secondary{background:#F5F2EE;color:#44444F;border:1px solid var(--line)}
+.btn-secondary:hover{background:#EDEAE5}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#E8940A);color:white}
+.btn-green{background:linear-gradient(135deg,#27AE60,#1E9050);color:white}
+
+/* FORM BOX */
+.formbox{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--card-shadow)}
+.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.field label{display:block;font-size:10px;letter-spacing:.5px;font-weight:800;color:#555;margin-bottom:6px;text-transform:uppercase}
+.field input,.field select,.field textarea{width:100%;border:1.5px solid #E0DAD2;border-radius:9px;padding:11px 13px;font:13px inherit;background:white;color:var(--ink);transition:border-color .2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--saffron);outline:none;box-shadow:0 0 0 3px rgba(255,107,53,.1)}
+.field textarea{min-height:70px;resize:vertical}
+.field.full{grid-column:1/-1}
+.field.half{grid-column:span 1}
+.result-box{display:none;margin-top:20px;border:2px solid var(--saffron);border-radius:14px;overflow:hidden}
+.result-header{background:linear-gradient(135deg,var(--saffron),var(--saffron-dark));color:white;padding:14px 18px;font-weight:800;font-size:14px}
+#resultText{white-space:pre-wrap;background:var(--dark);color:#E2E8F0;padding:18px;font:12.5px/1.7 'Cascadia Code',ui-monospace,monospace;max-height:500px;overflow:auto}
+
+/* TABS */
+.tabs{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 18px}
+.tab{border:1.5px solid #DDD8D0;background:white;color:#666;border-radius:9px;padding:9px 14px;font-size:12px;font-weight:800;cursor:pointer;transition:all .2s}
+.tab:hover,.tab.active{background:linear-gradient(135deg,var(--saffron),var(--saffron-dark));border-color:var(--saffron);color:white;box-shadow:0 3px 12px rgba(255,107,53,.3)}
+
+/* INDUSTRY GRID */
+.industry-card{background:white;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--card-shadow);transition:transform .2s}
+.industry-card:hover{transform:translateY(-2px)}
+.industry-card .ind-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.ind-icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:26px;flex-shrink:0}
+.industry-card h3{font-size:14px;margin:0 0 3px;font-weight:700}
+.industry-card .ind-type{font-size:10px;color:var(--saffron);font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+.industry-card .angle{font-size:11px;color:var(--muted);line-height:1.55;margin-bottom:10px}
+.example-box{background:#F8F4EF;border-radius:9px;padding:10px 12px;font-size:12px;line-height:1.6;border-left:3px solid var(--saffron)}
+
+/* FESTIVAL CALENDAR */
+.fest-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fest-card{background:white;border:1px solid var(--line);border-radius:13px;padding:16px;box-shadow:var(--card-shadow);cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.fest-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.fest-card.big::before{background:linear-gradient(90deg,var(--saffron),var(--gold))}
+.fest-card.medium::before{background:linear-gradient(90deg,var(--emerald),#1E9050)}
+.fest-card.small::before{background:linear-gradient(90deg,var(--royal),#4A6CF7)}
+.fest-card:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.12)}
+.fest-date{font-size:10px;font-weight:800;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.fest-card h3{font-size:14px;margin:0 0 6px;font-weight:700}
+.fest-card p{font-size:11.5px;color:var(--muted);line-height:1.5;margin:0 0 10px}
+.opportunity-bar{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:800;color:var(--saffron);text-transform:uppercase;letter-spacing:.3px}
+.opp-stars{color:var(--gold)}
+
+/* WORKFLOW STEPS */
+.steps-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.step-card{background:white;border:1px solid var(--line);border-radius:12px;padding:16px;position:relative;box-shadow:var(--card-shadow)}
+.step-num{font-size:10px;color:var(--saffron);font-weight:900;margin-bottom:8px;letter-spacing:.5px}
+.step-card strong{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.step-card p{font-size:11.5px;line-height:1.55;color:var(--muted);margin:0}
+.step-card .time-badge{background:#FFF0E8;color:var(--saffron);border-radius:5px;padding:3px 8px;font-size:10px;font-weight:800;display:inline-block;margin-bottom:8px}
+
+/* CHECKLIST */
+.checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.check-item{background:white;border:1px solid var(--line);border-radius:9px;padding:12px 14px;font-size:12.5px;display:flex;align-items:flex-start;gap:10px;cursor:pointer;transition:all .2s}
+.check-item:hover{border-color:var(--saffron)}
+.check-item input[type=checkbox]{accent-color:var(--saffron);margin-top:2px;flex-shrink:0;width:15px;height:15px}
+.check-item.checked{background:#F0FFF4;border-color:#27AE60}
+
+/* NOTICE & TIPS */
+.notice{border:1px solid #FFD993;background:#FFFBE8;border-radius:12px;padding:16px 18px;margin:16px 0;line-height:1.65;font-size:13px}
+.notice b{color:#875700}
+.notice-green{border-color:#A8E6C0;background:#F0FFF4}
+.notice-green b{color:#145A32}
+.notice-blue{border-color:#A8C4E8;background:#EEF2FF}
+.notice-blue b{color:#1A3A6A}
+
+/* WHATSAPP CORNER */
+.wa-preview{background:linear-gradient(135deg,#25D366,#128C7E);color:white;border-radius:14px;padding:18px 20px;margin:12px 0;position:relative;overflow:hidden}
+.wa-preview::after{content:'💬';position:absolute;right:16px;bottom:-5px;font-size:50px;opacity:.15}
+.wa-preview strong{display:block;font-size:12px;letter-spacing:.5px;opacity:.85;margin-bottom:6px}
+.wa-preview p{margin:0;font-size:13.5px;line-height:1.6}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#222,#333);color:white;border-radius:12px;padding:13px 18px;display:none;z-index:999;box-shadow:0 6px 24px rgba(0,0,0,.25);font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+
+/* OUTPUT AREA */
+.ai-output{display:none;margin-top:20px}
+.ai-output .out-header{background:linear-gradient(135deg,var(--royal),#4A6CF7);color:white;border-radius:10px 10px 0 0;padding:13px 17px;font-weight:800;font-size:13px}
+.out-body{background:var(--dark);color:#E2E8F0;border-radius:0 0 10px 10px;padding:18px;font:12.5px/1.75 ui-monospace,monospace;max-height:600px;overflow:auto}
+
+/* QUICK WIN CARDS */
+.quick-win{background:linear-gradient(135deg,#F0FFF4,#E8F8EE);border:1px solid #A8E6C0;border-radius:12px;padding:16px;display:flex;gap:12px;align-items:flex-start}
+.qw-icon{font-size:28px;flex-shrink:0}
+.qw-text strong{display:block;font-size:13px;font-weight:800;color:#145A32;margin-bottom:4px}
+.qw-text p{margin:0;font-size:12.5px;color:#2D6A4F;line-height:1.55}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:24px 0;color:#999;font-size:11.5px;text-align:center;line-height:1.7}
+footer strong{color:var(--saffron)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .shell{grid-template-columns:220px minmax(0,1fr)}
+  .content{padding:22px 20px}
+  .fest-grid,.grid-3{grid-template-columns:repeat(2,1fr)}
+  .steps-flow{grid-template-columns:repeat(2,1fr)}
+  .fields{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+  .shell{display:block}
+  aside{position:relative;top:0;height:auto;padding:8px}
+  .sidehead,.group{display:none}
+  nav{display:flex;overflow-x:auto;gap:5px;padding-bottom:5px}
+  nav a{white-space:nowrap;font-size:11px;padding:9px;border-left:none}
+  .content{padding:16px 14px}
+  .grid,.grid-3,.fest-grid,.checklist{grid-template-columns:1fr}
+  .fields{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .steps-flow{grid-template-columns:repeat(2,1fr)}
+  .secthead-row{display:block}
+  .top{padding:0 14px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="logo-mark">🪔</div>
+  <div class="brand-text">
+    <strong>भारत SME Festival Marketing Lab</strong>
+    <span>Your AI Marketing Trainer for Every Festival, Every Business, Every Season</span>
+  </div>
+  <div class="trainer-badge">🎯 Live Trainer Mode</div>
+</header>
+
+<div class="shell">
+<aside>
+  <div class="sidehead">
+    <b style="font-size:15px">🎓 AI Marketing Trainer</b>
+    <div class="trainer-intro">Hello! Main aapka marketing partner hoon. Aaj ka goal: festive season mein aapki business ko yaadgaar banana.</div>
+  </div>
+  <nav>
+    <div class="group">🚀 START HERE</div>
+    <a class="active" href="#home"><span class="festival-pulse"></span>&nbsp;Dashboard</a>
+    <a href="#builder">🧩 My Campaign Builder</a>
+    
+    <div class="group">🎨 CREATE CONTENT</div>
+    <a href="#greetings">💌 Festival Greetings</a>
+    <a href="#visuals">🖼️ Posters & Creatives</a>
+    <a href="#video">🎬 Reels & Videos</a>
+    <a href="#whatsapp">💬 WhatsApp Campaigns</a>
+    <a href="#sales">🎯 Offer & Sales Posts</a>
+    
+    <div class="group">📅 PLAN & STRATEGY</div>
+    <a href="#calendar">🪔 Festival Calendar</a>
+    <a href="#industries">🏭 My Industry Playbook</a>
+    <a href="#recurring">🔁 Weekly Content</a>
+    
+    <div class="group">✅ QUALITY</div>
+    <a href="#workflow">⚡ 20-Minute Workflow</a>
+    <a href="#checklist">✅ Pre-Send Checklist</a>
+  </nav>
+</aside>
+
+<main>
+  <div class="crumb">🏠 Marketing Lab <b>›</b> <span id="crumbText">Dashboard — Welcome, Business Owner!</span></div>
+
+  <div class="content">
+
+    <!-- HOME -->
+    <section id="home">
+      <div class="hero">
+        <div class="eyebrow">🎓 YOUR AI FESTIVAL MARKETING TRAINER FOR INDIAN SMEs</div>
+        <h1>Har Festival Ko<br><em>Business Opportunity</em> Banao</h1>
+        <p class="lead">Sirf "Happy Diwali" bhejne ka zamana gaya. Aaj ke customer chahte hain — connection, value, aur authenticity. Ye lab aapko har festival, har business type ke liye ready-to-use prompts, strategies, aur step-by-step plans deta hai. Textile se leke Tech tak, Jewellery se leke Consulting tak — sab ke liye.</p>
+        <div class="herofoot">
+          <span class="chip">🪔 Diwali-Ready Campaigns</span>
+          <span class="chip">📱 WhatsApp-First Strategy</span>
+          <span class="chip">🗣️ Hindi + English Content</span>
+          <span class="chip">🏭 Industry-Specific Ideas</span>
+          <span class="chip">⚡ 20-Min Execution</span>
+          <span class="chip">💰 Zero Budget Friendly</span>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>40+</b><span>Indian Festival Angles</span></div>
+        <div class="stat"><b>15+</b><span>Business Types Covered</span></div>
+        <div class="stat"><b>50+</b><span>Prompts & Templates</span></div>
+        <div class="stat"><b>12</b><span>Months of Content Ideas</span></div>
+      </div>
+
+      <div class="trainer-says">
+        <div class="trainer-avatar">🎓</div>
+        <div class="trainer-text">
+          <strong>Trainer Tip — Festive Season 2024</strong>
+          <p>Suno, sabse badi galti jo SMEs karte hain — <b>har festival pe same "Warm Wishes" poster bhej dena</b>. Customer bore ho jaata hai. Aapka competitor same template use kar raha hai. Is lab ka use karke aap apni <b>actual business value ko festival ke saath connect</b> karein — tab aapka message inbox mein sirf greeting nahi, ek brand memory banta hai. Chalte hain!</p>
+        </div>
+      </div>
+
+      <div class="festival-banner">
+        <div class="fest-icon">🪔</div>
+        <div style="flex:1">
+          <h3>Coming Up — Festive Season 2024!</h3>
+          <p>Biggest marketing opportunity of the year. Click a festival to jump to its ready-made campaign strategy:</p>
+          <div class="countdown-chips">
+            <span class="cfest active" onclick="jumpToFest('diwali',this)">🪔 Diwali</span>
+            <span class="cfest" onclick="jumpToFest('dhanteras',this)">🪙 Dhanteras</span>
+            <span class="cfest" onclick="jumpToFest('navratri',this)">🌺 Navratri</span>
+            <span class="cfest" onclick="jumpToFest('bhaibij',this)">👫 Bhai Dooj</span>
+            <span class="cfest" onclick="jumpToFest('chhath',this)">🌅 Chhath</span>
+            <span class="cfest" onclick="jumpToFest('christmas',this)">🎄 Christmas</span>
+            <span class="cfest" onclick="jumpToFest('newyear',this)">🎆 New Year</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="secthead">
+        <h2>🎯 4 Steps to a Winning Festival Campaign</h2>
+        <p>Yahi framework hai jo 20 minute mein aapka poora campaign bana deta hai.</p>
+      </div>
+      <div class="steps-flow">
+        <div class="step-card"><div class="time-badge">⏱ 2 MIN</div><div class="step-num">STEP 01 / APNI PEHCHAAN</div><strong>Business ki asli baat kya hai?</strong><p>Company, industry, kya bechte ho, kaun khareedata hai, aur ek real strength jo competitors nahi de sakte.</p></div>
+        <div class="step-card"><div class="time-badge">⏱ 3 MIN</div><div class="step-num">STEP 02 / OCCASION CHOOSE KARO</div><strong>Aaj ka message kyun jayega?</strong><p>Festival, customer anniversary, new product, weekly tip — moment choose karo aur ussi ke liye likho.</p></div>
+        <div class="step-card"><div class="time-badge">⏱ 10 MIN</div><div class="step-num">STEP 03 / CREATE & GENERATE</div><strong>AI se 3 different angles maango</strong><p>Emotional, premium, aur industry-specific — teeno options dekhkar sabse authentic choose karo.</p></div>
+        <div class="step-card"><div class="time-badge">⏱ 5 MIN</div><div class="step-num">STEP 04 / CHECK & SEND</div><strong>Bhejne se pehle verify karo</strong><p>Logo, website, language, cultural fit — ye checklist follow karo. Jo message aap khud dekh ke khush ho, wahi bhejo.</p></div>
+      </div>
+    </section>
+
+    <!-- CAMPAIGN BUILDER -->
+    <section id="builder" class="section">
+      <div class="secthead-row secthead">
+        <div>
+          <h2>🧩 Personal Campaign Brief Generator</h2>
+          <p>Ye form ek baar fill karo — AI ke liye ek personalized mega-prompt taiyaar hoga jo aap kisi bhi tool mein use kar sakte ho.</p>
+        </div>
+      </div>
+
+      <div class="trainer-says">
+        <div class="trainer-avatar">🎓</div>
+        <div class="trainer-text">
+          <strong>Trainer Says — This is Your Secret Weapon</strong>
+          <p>Ye form carefully fill karna. Jitna specific aap honge, utna powerful output milega. "Garments" mat likho — "Surat-based premium saree manufacturer supplying retailers across Gujarat" likho. AI ko aapki exact reality samajhni chahiye!</p>
+        </div>
+      </div>
+
+      <div class="formbox">
+        <div class="fields">
+          <div class="field"><label>Company Name *</label><input id="company" placeholder="e.g. Sharma Textiles Pvt Ltd"></div>
+          <div class="field"><label>Business Type *</label>
+            <select id="industry">
+              <option value="Garments & Textiles (Manufacturer/Exporter)">👗 Garments & Textiles</option>
+              <option value="Jewellery & Accessories (Retailer/Manufacturer)">💎 Jewellery & Accessories</option>
+              <option value="Manufacturing & Industrial (B2B Manufacturer)">🏭 Manufacturing & Industrial</option>
+              <option value="Trading & Distribution (Wholesale/Distribution)">📦 Trading & Distribution</option>
+              <option value="IT & Software (Tech/SaaS/Digital)">💻 IT & Software / Tech</option>
+              <option value="Solar & Energy (Renewable Energy Installer)">☀️ Solar & Renewable Energy</option>
+              <option value="Real Estate & Construction">🏗️ Real Estate & Construction</option>
+              <option value="Professional Services (CA/Legal/Consulting)">⚖️ CA / Legal / Consulting</option>
+              <option value="Food & Hospitality (Restaurant/Catering/Hotel)">🍽️ Food & Hospitality</option>
+              <option value="Healthcare & Wellness (Clinic/Pharma/Wellness)">🏥 Healthcare & Wellness</option>
+              <option value="Education & Training (Institute/Coaching/Edtech)">📚 Education & Training</option>
+              <option value="Retail & D2C (Consumer Brand)">🛍️ Retail & D2C Consumer Brand</option>
+              <option value="Logistics & Transport (Fleet/Courier)">🚛 Logistics & Transport</option>
+              <option value="Agriculture & Food Processing">🌾 Agriculture & Agri-Processing</option>
+              <option value="Beauty & Fashion (Salon/Boutique)">💄 Beauty, Salon & Fashion</option>
+              <option value="Other SME Business">🏢 Other SME Business</option>
+            </select>
+          </div>
+          <div class="field"><label>Campaign Festival / Occasion</label>
+            <select id="moment">
+              <option value="Diwali 2024">🪔 Diwali</option>
+              <option value="Dhanteras">🪙 Dhanteras</option>
+              <option value="Navratri">🌺 Navratri</option>
+              <option value="Bhai Dooj">👫 Bhai Dooj</option>
+              <option value="Dussehra / Vijayadashami">🏹 Dussehra</option>
+              <option value="Karwa Chauth">🌙 Karwa Chauth</option>
+              <option value="Eid-ul-Fitr">🌙 Eid-ul-Fitr</option>
+              <option value="Holi">🎨 Holi</option>
+              <option value="Raksha Bandhan">🎀 Raksha Bandhan</option>
+              <option value="Ganesh Chaturthi">🐘 Ganesh Chaturthi</option>
+              <option value="Janmashtami">🪈 Janmashtami</option>
+              <option value="Independence Day">🇮🇳 Independence Day</option>
+              <option value="Republic Day">🇮🇳 Republic Day</option>
+              <option value="Women's Day">👩 Women's Day</option>
+              <option value="Christmas & New Year">🎄 Christmas & New Year</option>
+              <option value="Pongal / Makar Sankranti">🌾 Pongal / Sankranti</option>
+              <option value="Onam">🌸 Onam</option>
+              <option value="Baisakhi">🌾 Baisakhi</option>
+              <option value="Financial Year End (March)">📊 FY End / New Financial Year</option>
+              <option value="Customer Appreciation Day">🙏 Customer Appreciation</option>
+              <option value="Business Anniversary">🎂 Business Anniversary</option>
+              <option value="New Product Launch">🚀 New Product Launch</option>
+              <option value="Monday New Week">📅 Monday / New Week Post</option>
+            </select>
+          </div>
+          <div class="field full"><label>Products / Services *</label><input id="products" placeholder="Be specific: e.g. 'Custom-printed corporate uniforms, minimum order 50 pieces, PAN India delivery'"></div>
+          <div class="field"><label>Target Audience</label>
+            <select id="audience">
+              <option>Existing customers (warm relationship)</option>
+              <option>Prospective customers (awareness)</option>
+              <option>Dealers & distributors (channel partners)</option>
+              <option>Corporate clients & B2B buyers</option>
+              <option>End consumers (B2C shoppers)</option>
+              <option>Suppliers & vendors</option>
+              <option>Employees & team members</option>
+              <option>Mixed — all of the above</option>
+            </select>
+          </div>
+          <div class="field"><label>City / Region</label><input id="city" placeholder="e.g. Surat, Gujarat | PAN India | Delhi NCR"></div>
+          <div class="field"><label>Language Preference</label>
+            <select id="language">
+              <option>English</option>
+              <option>Hindi (Devanagari)</option>
+              <option>Hinglish (Hindi + English mix)</option>
+              <option>English + Hindi both</option>
+              <option>Gujarati</option>
+              <option>Marathi</option>
+              <option>Tamil</option>
+              <option>Telugu</option>
+              <option>Bengali</option>
+            </select>
+          </div>
+          <div class="field"><label>Brand Personality</label>
+            <select id="style">
+              <option>Premium & elegant (luxury feel)</option>
+              <option>Warm & traditional (family-oriented)</option>
+              <option>Modern & minimal (clean, professional)</option>
+              <option>Friendly & approachable (neighborhood feel)</option>
+              <option>Bold & energetic (youth-oriented)</option>
+              <option>Trust-first & corporate</option>
+              <option>Desi & authentic (Indian roots)</option>
+            </select>
+          </div>
+          <div class="field"><label>Main Marketing Goal</label>
+            <select id="angle">
+              <option>Brand recall & top-of-mind awareness</option>
+              <option>Generate enquiries & leads</option>
+              <option>Announce a festival offer or scheme</option>
+              <option>Strengthen dealer/customer relationships</option>
+              <option>Launch a new product or service</option>
+              <option>Thank and retain existing customers</option>
+              <option>Educate audience about my product</option>
+              <option>Build social media following</option>
+            </select>
+          </div>
+          <div class="field"><label>Website / Instagram / WhatsApp Number</label><input id="website" placeholder="www.sharma-textiles.com | @sharma_textiles"></div>
+          <div class="field full"><label>Your Real Competitive Advantage *</label><textarea id="strength" placeholder="Kya cheez aapko alag banati hai? E.g. '25 saal ka experience, GST-ready billing, 48-hour dispatch guarantee, in-house design team, direct mill pricing, 500+ satisfied clients from across India'"></textarea></div>
+          <div class="field full"><label>Any Special Festival Offer / Scheme (Optional)</label><textarea id="offer" placeholder="e.g. 'Diwali pe 10% extra discount for bulk orders above ₹50,000', 'Free gift hamper with every purchase above ₹5,000', 'No-cost EMI on solar installations this month'"></textarea></div>
+        </div>
+        <div class="actions" style="margin-top:18px">
+          <button class="btn btn-primary" onclick="buildBrief()">⚡ Generate My Complete Campaign Brief</button>
+          <button class="btn btn-secondary" onclick="resetBrief()">🔄 Reset</button>
+        </div>
+        <div class="result-box" id="result">
+          <div class="result-header">✨ Your Personalized Campaign Master Prompt — Copy & Use in Any AI Tool</div>
+          <div id="resultText"></div>
+          <div class="actions" style="padding:14px 18px;background:var(--dark)">
+            <button class="btn btn-gold" onclick="copyText('resultText')">📋 Copy Full Prompt</button>
+            <button class="btn btn-green" onclick="copyWA()">💬 WhatsApp Version</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FESTIVAL GREETINGS -->
+    <section id="greetings" class="section">
+      <div class="secthead-row secthead">
+        <div>
+          <h2>💌 Festival Greeting Prompts</h2>
+          <p>Sirf "Happy Festival" nahi — emotion, relevance, aur brand connection ke saath greeting banana sikho.</p>
+        </div>
+        <span class="count-badge">8 Prompts</span>
+      </div>
+
+      <div class="trainer-says">
+        <div class="trainer-avatar">🎓</div>
+        <div class="trainer-text">
+          <strong>Trainer Insight — The Greeting Formula That Works</strong>
+          <p><b>Festival Ka Rang + Aapki Business Ki Baat = Yaadgaar Message.</b> Ek saree retailer ki Diwali greeting mein rangoli ke design mention hone chahiye. Ek CA firm ki greeting mein "new financial year fresh start" connect hona chahiye. Ye prompts isi philosophy pe based hain.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="ctop"><div class="ico ico-saffron">🪔</div><div><h3>01. Diwali — Industry-Connected Greeting</h3><p>Festival ko aapki business value se naturally connect karo.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pg1">Act as an experienced Indian brand strategist who has worked with SMEs across India.
+
+Create 3 Diwali greeting concepts for [COMPANY], a [INDUSTRY] business serving [AUDIENCE] in [CITY/REGION].
+
+Our real strength: [REAL BENEFIT]
+Language: [LANGUAGE]
+Brand style: [BRAND PERSONALITY]
+
+CONCEPT 1 — EMOTIONAL CONNECTION:
+Connect the Diwali theme of light/new beginnings to a genuine customer transformation your business creates.
+Give: Headline (max 7 words), 2-line greeting, 1 soft brand line, visual idea.
+
+CONCEPT 2 — INDUSTRY METAPHOR:
+Pick one specific Diwali element (diya, rangoli, crackers, mithai, new clothes, lakshmi puja) and connect it to your actual product or service in a clever, non-forced way.
+Give: Headline, greeting, why this metaphor works for this specific business.
+
+CONCEPT 3 — CUSTOMER-CENTRIC:
+Write from the customer's perspective — what does Diwali mean to your specific customer type? How does your business make their Diwali better or easier?
+Give: Headline, greeting, WhatsApp-ready 40-word caption.
+
+Rules: No generic "warm wishes and prosperity" language. No fake claims. No forced sales pitch inside the greeting. Keep the festival the hero.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pg1')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-gold">🎨</div><div><h3>02. Bilingual Greeting — Hindi + English Naturally</h3><p>Natural Hinglish jaise dil se nikli ho — AI translation jaisi nahi.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pg2">Write a [FESTIVAL] greeting for [COMPANY], a [INDUSTRY] business, in THREE natural versions:
+
+VERSION A — ENGLISH: Professional, warm, with subtle brand recall.
+VERSION B — HINDI: Pure Devanagari, reads like a real Indian business message, uses natural Hindi idioms. NOT a literal translation.
+VERSION C — HINGLISH: The way educated Indian businesspeople actually speak — flows naturally between both languages. Include a festival phrase in Hindi, main message in Hinglish.
+
+For each version provide:
+- Visual headline (max 6 words)
+- Main greeting (max 20 words)
+- Optional brand line (max 10 words)
+- WhatsApp-ready caption (max 35 words)
+- Which audience this version suits best
+
+Audience: [AUDIENCE]
+Subtle value to reinforce: [REAL BENEFIT]
+City/region context: [CITY]
+
+IMPORTANT: Do not simply translate. Make each version feel native to people who speak that language naturally. A Gujarati businessman in Surat reads differently than a Delhi corporate buyer.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pg2')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-green">🤝</div><div><h3>03. Dealer & B2B Partner Greeting</h3><p>Aapke channel partners ko special feel karwao — customers se alag message.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pg3">Write a [FESTIVAL] message from [COMPANY] to our dealer/distributor network and B2B partners.
+
+Our business: [INDUSTRY], Products: [PRODUCTS]
+What dealers value about us: [REAL BENEFIT]
+Number of dealer partners (approx): [NUMBER or "a strong network across India"]
+
+This is NOT a customer greeting. Dealers and channel partners are growth partners. Acknowledge:
+1. The business we've built TOGETHER — shared wins, orders fulfilled, trust built.
+2. What the coming season means for business (realistic, not overselling).
+3. A genuine thank-you that feels personal, not corporate.
+
+Deliver:
+- Short formal letter version (for email, max 120 words)
+- WhatsApp message version (max 50 words, warm and direct)
+- One-line poster caption for a dealer appreciation visual
+- A subject line for the email
+
+Tone: Partner-to-partner, not supplier-to-buyer. Respectful, direct, genuine.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pg3')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-blue">✨</div><div><h3>04. Upgrade Your Old Greeting</h3><p>Apna purana generic greeting paste karo — AI use karke usse powerful banao.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pg4">Here is my current generic [FESTIVAL] greeting that I want to upgrade:
+[PASTE YOUR CURRENT GREETING HERE]
+
+My business: [COMPANY] — [INDUSTRY]
+Audience: [AUDIENCE]
+Real value I provide: [REAL BENEFIT]
+Location: [CITY]
+
+Problems with my current greeting (identify all):
+- Is it too generic? Same as every competitor?
+- Does it sound copy-pasted?
+- Is it too long or too short for WhatsApp?
+- Does it connect to my business naturally?
+- Is it culturally appropriate and specific?
+
+Now create 5 UPGRADED versions:
+1. EMOTIONAL — touches a real feeling customers have during this festival
+2. WITTY-RESPECTFUL — clever connection between festival and our work (Indian wit, not Western humor)
+3. PREMIUM — language that positions us as a quality brand
+4. ULTRA-SHORT — 15 words max, maximum impact on mobile screen
+5. INDUSTRY-SPECIFIC — unique to what we actually do, no other business can copy this
+
+For each, explain in ONE sentence why it is more memorable than my original.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pg4')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-saffron">🌙</div><div><h3>05. Eid / Multi-Community Greeting</h3><p>Inclusive greetings jo different customers ke liye alag-alag naturally sound karein.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pg5">Create an Eid-ul-Fitr greeting for [COMPANY], a [INDUSTRY] business.
+
+Audience: [AUDIENCE — include Muslim customers, business partners, and secular audience]
+Our product/service: [PRODUCTS]
+Location: [CITY/REGION]
+Language: [LANGUAGE]
+
+Create:
+1. PRIMARY GREETING — Celebrates Eid genuinely and respectfully. Connects to values of togetherness, gratitude, and new beginnings — which are also core to our business. NOT forced commercial.
+
+2. UNIVERSAL VERSION — For our mixed customer base; acknowledges the occasion with warmth without assuming religion. Suitable for all community members.
+
+3. B2B PARTNER VERSION — For business partners who are celebrating Eid; acknowledges the holiday in a partner-to-partner way.
+
+4. SOCIAL MEDIA CAPTION — 30 words, suitable for Instagram/Facebook/LinkedIn.
+
+Cultural guidelines to follow:
+- Use "Eid Mubarak" correctly (not "Happy Eid" as primary greeting)
+- Crescent moon / star symbolism is appropriate
+- Avoid food references (fasting context)
+- Reference of brotherhood, gratitude, charity are appropriate
+- Do NOT turn Eid into a discount announcement</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pg5')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-gold">👥</div><div><h3>06. Same Festival — 5 Audiences, 5 Messages</h3><p>Ek hi festival mein customers, dealers, employees, prospects sab ko alag message.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pg6">For [COMPANY] in [INDUSTRY], create separate [FESTIVAL] greetings for 5 different audiences:
+
+AUDIENCE 1 — LOYAL EXISTING CUSTOMERS: Warm, grateful, acknowledges the relationship. They've been with us.
+AUDIENCE 2 — NEW/PROSPECT CUSTOMERS: Welcoming, introduces our value, soft first impression.
+AUDIENCE 3 — DEALERS & DISTRIBUTORS: Business-to-partner tone. Shared success. Future opportunity.
+AUDIENCE 4 — EMPLOYEES & TEAM: Internal message from the founder/MD. Human, appreciative, energizing.
+AUDIENCE 5 — SUPPLIERS & VENDORS: Professional gratitude for the partnership that supports our business.
+
+For each audience:
+- What they care about most
+- The right emotional tone
+- Headline (max 7 words)
+- Greeting message (max 25 words)
+- WhatsApp caption (max 35 words)
+- One key thing NOT to say to this audience
+
+Business details:
+Company: [COMPANY] | Industry: [INDUSTRY] | Location: [CITY] | Real strength: [BENEFIT]
+
+Keep festival message consistent. Never reuse identical copy across audiences.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pg6')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-green">🌾</div><div><h3>07. Regional Festival Greeting (Pongal / Onam / Baisakhi / Bihu)</h3><p>Regional festivals pe accurate cultural connect karo — generic mat bano.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pg7">Create a [REGIONAL FESTIVAL — e.g. Pongal / Onam / Baisakhi / Bihu / Ugadi] greeting for [COMPANY], a [INDUSTRY] business.
+
+Our customers in this region: [DESCRIBE — e.g. Tamil Nadu saree retailers, Kerala hotel owners, Punjab farmers and agri-dealers]
+Products/Services: [PRODUCTS]
+Language for this region: [REGIONAL LANGUAGE + English version]
+
+Research task for AI: Identify 3-5 AUTHENTIC cultural elements of this specific festival (not generic India-wide symbols). Examples:
+- Pongal: Kolam (rangoli), sugarcane, newly harvested rice, Pongal pot
+- Onam: Pookalam (flower carpet), Onasadya feast, boat race, Maveli story
+- Baisakhi: Harvest of wheat, bhangra, new agricultural year, Gurdwara visit
+- Bihu: Xorai offering, Bihu dance, gamosa (red and white cloth), Brahmaputra river
+
+Now connect ONE of these authentic elements to our actual business in a genuine, clever way — not forced.
+Create: Regional-language greeting, English translation, poster concept, and WhatsApp caption (35 words).
+
+Cultural respect rule: The festival symbol must connect naturally. If the connection feels forced, choose a different element.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pg7')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-blue">🎂</div><div><h3>08. Business Anniversary + Festival Combo</h3><p>Jab aapka business anniversary festival ke paas ho — double impact create karo.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pg8">Create a combined [FESTIVAL] + Business Anniversary message for [COMPANY].
+
+Verified facts only:
+- Company name: [COMPANY]
+- Years in business: [VERIFIED YEARS]
+- Location: [CITY] (and any expansion since founding)
+- One real milestone: [ONE TRUE ACHIEVEMENT — e.g. "Crossed 1,000 clients", "Expanded to 3 states", "Launched XYZ product"]
+- What customers say we do best: [REAL CUSTOMER FEEDBACK OR KNOWN STRENGTH]
+
+Tasks:
+1. Founder's note (120 words max) — reflective, genuine, not boastful. Thank customers and team authentically.
+2. Social media post — connects the anniversary to the festival theme (new light = new chapter). 50 words.
+3. WhatsApp broadcast message — personal, direct, warm. 40 words.
+4. One headline for a poster — max 8 words, combines anniversary joy and festival energy.
+
+CRITICAL RULES:
+- Use ONLY the verified facts provided. No invented client numbers, revenue, awards.
+- Do not exaggerate years or scale.
+- Make it feel like a genuine milestone, not a marketing stunt.
+- The founder should sound human, not like a press release.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pg8')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- VISUALS -->
+    <section id="visuals" class="section">
+      <div class="secthead-row secthead">
+        <div><h2>🖼️ Poster, Creative & Infographic Prompts</h2>
+        <p>Visual content jo real brand jaisa dikhe — generic template pe logo chipkane wali cheez nahi.</p></div>
+        <span class="count-badge">5 Prompts</span>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="ctop"><div class="ico ico-saffron">🎨</div><div><h3>09. Premium Festival Poster</h3><p>WhatsApp, Instagram, aur email ke liye ek professional poster.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pv1">Design a premium [FESTIVAL] greeting poster for [COMPANY].
+
+Business: [INDUSTRY] | Products: [PRODUCTS] | Audience: [AUDIENCE]
+Brand style: [BRAND PERSONALITY] | Website: [WEBSITE]
+Genuine customer value: [REAL BENEFIT]
+
+POSTER DESIGN REQUIREMENTS:
+1. VISUAL CONCEPT: Create an original concept — NOT a stock template. Use a culturally authentic festival element (specific to [FESTIVAL]) and connect it visually to our industry in a tasteful way.
+
+2. COMPOSITION STRUCTURE:
+   - 70% of space: Festival mood, emotion, visual story
+   - 20% of space: Greeting message + headline
+   - 10% of space: Branding (company name, website, logo area)
+
+3. ON-POSTER TEXT (exact copy):
+   - Main headline: [Give 3 options, max 6 words each]
+   - Greeting: [Max 15 words, sincere, specific to festival]
+   - Brand line: [Max 8 words, subtle value connection]
+   - Footer: Company name | Website | City
+
+4. COLOR PALETTE: Suggest colors that are:
+   - Appropriate for [FESTIVAL] cultural colors
+   - Consistent with our [BRAND STYLE]
+   - Mobile-readable with high contrast
+
+5. FORMAT: Vertical 4:5 for Instagram + WhatsApp status 9:16 version
+
+6. FONT GUIDANCE: Primary (headline): bold, max 2 fonts. If Hindi text needed, suggest appropriate Devanagari font.
+
+IMPORTANT: Do not invent offers, awards, testimonials, or fake customer quotes. If text rendering may distort in AI tools, specify text-safe zones and recommend adding verified copy in Canva/editor.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pv1')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-gold">📱</div><div><h3>10. WhatsApp Status Creative (9:16)</h3><p>Phone screen ke liye — 2 second mein message clear ho.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pv2">Create a 9:16 vertical WhatsApp Status creative for [COMPANY] for [FESTIVAL/OCCASION].
+
+CRITICAL WHATSAPP STATUS RULES:
+- Person swipes through 20+ status updates. Yours must stop the thumb in first 0.5 seconds.
+- 70% of viewers read with sound OFF — visual must communicate alone.
+- Top 200px and bottom 150px are UI zones — keep them free of important text.
+- Text must be readable on smallest phones (Redmi, Realme) in bright daylight.
+
+DESIGN BRIEF:
+Company: [COMPANY] | Industry: [INDUSTRY]
+One main festival visual element: [Choose the most relevant — e.g. Diya for Diwali, Colours for Holi]
+One key message: [GREETING OR OFFER IN MAX 5 WORDS]
+Brand footer: [COMPANY NAME] + [WEBSITE]
+
+CREATE:
+VERSION A — GREETING: Pure festival emotion. No offer. Max 6 words on screen.
+VERSION B — OFFER: If you have a festival offer — [OFFER DETAILS]. Put offer in center in bold. Festival mood as background.
+VERSION C — BRAND STORY: One visual that tells "who we are" through the festival lens. No text except company name.
+
+For each version: visual description, exact on-screen text, color hex codes, safe zone placements.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pv2')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-green">📚</div><div><h3>11. 5-Slide Story Carousel</h3><p>Festival greeting ko ek mini brand story mein convert karo.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pv3">Create a 5-slide Instagram/LinkedIn carousel for [COMPANY] around [FESTIVAL].
+
+Business: [INDUSTRY] | Customer Benefit: [BENEFIT] | Audience: [AUDIENCE]
+
+CAROUSEL STORY FLOW:
+SLIDE 1 — THE HOOK: A powerful visual question or statement about what [FESTIVAL] means to [AUDIENCE TYPE]. Emotional, specific, not generic. Max 10 words. This must make them want to swipe.
+
+SLIDE 2 — THE FESTIVAL CONNECTION: One authentic [FESTIVAL] value or tradition — specifically chosen because it connects to your actual business (not forced). What do customers feel/do during this festival that relates to your work?
+
+SLIDE 3 — THE CUSTOMER TRUTH: A real problem, aspiration, or moment your customers face — during or before this festival. Make them feel understood. No selling yet.
+
+SLIDE 4 — YOUR CONTRIBUTION (Subtle): How [COMPANY] helps solve that or makes that moment better. Specific, verifiable, not a sales pitch. One true differentiator only.
+
+SLIDE 5 — THE GREETING + CTA: Festival wish, company name, website, one soft next-step (visit, call, enquire — only if natural).
+
+For each slide: exact on-slide copy (max 15 words), visual description, background color, and transition note.
+Caption for the full carousel post: max 60 words.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pv3')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-blue">🛠️</div><div><h3>12. AI Poster Review & Critic</h3><p>Bhejne se pehle apna poster AI se review karwao — ek demanding brand director ki tarah.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pv4">Review my [FESTIVAL] poster as a demanding Indian brand director who has approved and rejected hundreds of SME campaigns.
+
+My business: [COMPANY] — [INDUSTRY] | Audience: [AUDIENCE]
+[UPLOAD THE POSTER IMAGE]
+
+SCORE 1-10 on these criteria (be brutally honest):
+1. THUMB-STOP POWER — Would this stop someone scrolling WhatsApp?
+2. GREETING AUTHENTICITY — Does it feel genuine or copy-pasted?
+3. BRAND RECALL — Will people remember WHO sent this 5 minutes later?
+4. CULTURAL ACCURACY — Are the festival elements used correctly and respectfully?
+5. INDUSTRY CONNECTION — Does the business feel naturally connected to the festival?
+6. MOBILE READABILITY — Can it be read on a Redmi phone screen, in a bright room?
+7. LOGO & URL ACCURACY — Are these correct, clear, and not distorted?
+8. OVERALL IMPRESSION — Would YOU share this with your clients?
+
+After scoring:
+- List 3 specific things to REMOVE
+- List 3 specific things to FIX (with exact suggestions)
+- Write the improved headline and greeting copy
+- Give an overall verdict: SEND / REVISE / DO NOT SEND — with reason</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pv4')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-saffron">📊</div><div><h3>13. Educational Infographic</h3><p>Useful content jo share kiya jaye — festival se pehle ya baad mein awareness ke liye.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pv5">Create an educational infographic for [COMPANY]'s audience around [FESTIVAL/SEASON].
+
+Business: [INDUSTRY] | Audience: [AUDIENCE]
+Topic: [Choose one — e.g. "5 things to check before Diwali if you own a [business type]", "How to choose [product] for gifting this festive season", "Post-festival business planning checklist", "What buyers should know about [product] quality"]
+
+INFOGRAPHIC STRUCTURE (6-8 sections max):
+- Title: Clear, useful, shareable headline (people will save and forward this)
+- Section 1-6: Each section = 1 actionable, verified tip relevant to [AUDIENCE]
+- Footer: Company name, website, "For more, contact us at [CONTACT]"
+
+DESIGN DIRECTIONS:
+- Use [FESTIVAL] colors but keep it clean and professional
+- Each tip must stand alone — reader should understand even if they just see the graphic
+- Keep text per section under 12 words — this is visual, not an article
+- Include 1 relevant icon per tip
+
+PURPOSE: This is NOT a sales post. It is genuinely useful information that makes [AUDIENCE] smarter. Brand appears only in footer. Make it so good that people forward it.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pv5')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- VIDEO SECTION -->
+    <section id="video" class="section">
+      <div class="secthead-row secthead">
+        <div><h2>🎬 Reel & Short Video Prompts</h2>
+        <p>8-15 second videos jo mobile pe 100% effective hain — bina professional camera ke bhi.</p></div>
+        <span class="count-badge">4 Prompts</span>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="ctop"><div class="ico ico-saffron">🎞️</div><div><h3>14. Festival Reel Storyboard (8-10 sec)</h3><p>Cinematic feel — emotion → value → brand recall.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pvid1">Act as a creative director who makes Indian SME reels that actually get watched.
+
+Create an 8-10 second vertical (9:16) [FESTIVAL] video storyboard for [COMPANY], [INDUSTRY].
+Audience: [AUDIENCE] | Key message: [REAL BENEFIT] | Website: [WEBSITE]
+
+SECOND-BY-SECOND STORYBOARD:
+
+0-2 sec — HOOK: What visual makes a viewer STOP scrolling in first 1 second?
+Use a festival-specific visual surprise or question. Text overlay if any: max 4 words.
+
+2-5 sec — CONNECTION: Transition from festival moment to something real about our business/customers. 
+This should feel natural, not like an ad. One visual, minimal text.
+
+5-8 sec — EMOTION: The feeling we want customers to associate with our brand + this festival.
+A warm, specific, genuine moment — not stock footage energy.
+
+8-10 sec — BRAND FRAME: Company name, our real benefit in 5 words, website, festival greeting.
+Clean. Readable. Not crowded.
+
+For each second: Shot description, camera direction, on-screen text, audio/music mood.
+
+BUDGET VERSIONS:
+VERSION A — Professional shoot: Props, lighting, camera directions.
+VERSION B — Smartphone only: How to shoot this with just an iPhone/Android + natural light.
+VERSION C — No shoot needed: Text animation + graphics version using free tools like CapCut.
+
+NOTE: If using AI video tools, specify safe zones for text. Add logo and website in post-production for accuracy.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pvid1')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-gold">📲</div><div><h3>15. Testimonial Reel — Customer Story</h3><p>Real customer voice ko video mein dalo — sabse powerful content.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pvid2">Help me create a customer testimonial reel script for [COMPANY] to use during [FESTIVAL SEASON].
+
+Business: [INDUSTRY] | What we do: [PRODUCTS/SERVICES]
+Real customer story (use only verified facts): [DESCRIBE REAL CUSTOMER SITUATION — name if permitted, city, what problem we solved, outcome]
+
+CREATE:
+1. INTERVIEW SCRIPT — 5 questions to ask the customer on camera:
+   - Questions that make them naturally mention our real strength
+   - Questions about the festival/seasonal context of their purchase
+   - One question about recommendation (NPS-style)
+
+2. VIDEO STRUCTURE (30 sec total):
+   - 0-5 sec: Customer name, city, business type (text overlay)
+   - 5-20 sec: Their answer to the best question (authentic, unscripted feel)
+   - 20-28 sec: The key quote in text overlay on screen
+   - 28-30 sec: Company brand frame + website
+
+3. CAPTION for social media: 40 words, third-person, does NOT quote exact words
+
+4. PRIVACY CHECKLIST: What permissions to get before posting (visual, audio, business name)
+
+RULE: Only use what the customer actually said. Do not fabricate quotes. Do not post without permission. This builds long-term trust — one fake testimonial destroys it.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pvid2')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-green">🏭</div><div><h3>16. Behind-the-Scenes Festival Video</h3><p>Apni factory/office/team ko show karo — authenticity = trust.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pvid3">Create a behind-the-scenes [FESTIVAL] preparation video concept for [COMPANY].
+
+Business: [INDUSTRY] | Location: [CITY] | Team size (approx): [SIZE]
+What we actually do/make: [DESCRIBE THE PROCESS — e.g. "We weave sarees on power looms", "We install solar panels", "We manufacture auto parts"]
+
+VIDEO CONCEPT — "How [COMPANY] Prepares for [FESTIVAL]":
+Show the REAL people and processes behind the product/service.
+
+SHOT LIST (15-20 second video):
+1. Opening: Something visually interesting in your actual workspace — machines running, fabric being cut, a screen with code, a kitchen prepping, a team meeting. Festival decoration INSIDE the office/factory if any.
+2. Middle: 3-4 quick cuts of real work happening — the process that delivers the product/service customers love.
+3. One human moment: A team member doing something genuinely skilled or caring. Ask their permission to appear.
+4. Closing: Festival greeting + team wave/message to camera + company name.
+
+CAPTION FORMULA:
+"[WHAT WE DO] ke peeche [HONEST EMOTION — dedication/craft/care]. [FESTIVAL] pe aap sab ko dil se shubhkamnaen. — [COMPANY NAME], [CITY]"
+
+This video should feel authentic, not staged. Real > perfect.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pvid3')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-blue">🎁</div><div><h3>17. Offer Announcement Reel</h3><p>Festival offer ko exciting tarike se announce karo — bina cheap dikhe.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pvid4">Create a festival offer announcement reel for [COMPANY].
+
+Business: [INDUSTRY] | Products: [PRODUCTS] | Audience: [AUDIENCE]
+THE ACTUAL OFFER: [DESCRIBE EXACT OFFER — e.g. "10% off on orders above ₹25,000 till Nov 15", "Free installation on solar rooftop projects this month", "Buy 2 get 1 on entire saree collection"]
+
+IMPORTANT: The offer must be REAL and HONEST. If there are terms and conditions, include them briefly.
+
+REEL STRUCTURE (12-15 seconds):
+0-3 sec: Festival hook that creates emotional context BEFORE the offer. The festival, not the discount, leads.
+3-8 sec: The offer — clear, specific, honest. Price in INR (₹). Deadline if real.
+8-12 sec: Why this is genuinely valuable (not generic "limited time" pressure).
+12-15 sec: Clear call-to-action — how to avail (WhatsApp number / website / visit store).
+
+ON-SCREEN TEXT for each segment: exact words, font size guidance, color.
+
+CAPTION: 50 words. Repeats the key offer with terms. WhatsApp link if applicable.
+
+RULES FOR HONEST OFFER MARKETING:
+- Never say "limited stock" if stock is not actually limited.
+- If the offer has specific T&C, state them clearly.
+- "Upto X% off" is acceptable only if some items are at X%.
+- Festival pricing that is actually higher than pre-festival = NEVER do this.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pvid4')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- WHATSAPP -->
+    <section id="whatsapp" class="section">
+      <div class="secthead-row secthead">
+        <div><h2>💬 WhatsApp Campaign Prompts</h2>
+        <p>India mein 90% SME business WhatsApp pe hota hai. Ye prompts usi ke liye hain.</p></div>
+        <span class="count-badge">6 Prompts</span>
+      </div>
+
+      <div class="trainer-says">
+        <div class="trainer-avatar">🎓</div>
+        <div class="trainer-text">
+          <strong>Trainer Fact — WhatsApp Reality Check</strong>
+          <p>Indian customers <b>8-10 festival broadcasts ek din mein receive karte hain</b>. Aapka message unka 7th "Happy Diwali" nahi hona chahiye. Ye prompts use karo aur ek aisa message bhejo jo unhe actually useful lage — ya genuinely touch kare. Tab woh aapka number save karenge, block nahi karenge.</p>
+        </div>
+      </div>
+
+      <div class="wa-preview">
+        <strong>📱 THE WHATSAPP RULE — Always remember:</strong>
+        <p>WhatsApp message mein: <b>First 2 lines sabse important hain</b> — yahi preview mein dikhta hai. Headline pehle, festival wish pehle, company name baad mein. Offer hai toh ₹ amount clearly dikhe. Max 60-80 words for best response. Aur ek clear next step dena — call, visit ya reply karein.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="ctop"><div class="ico ico-green">📱</div><div><h3>18. WhatsApp Festival Broadcast</h3><p>Existing customers ke liye mass broadcast — jo feel kare personal.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pwa1">Write a [FESTIVAL] WhatsApp broadcast message for [COMPANY] to send to existing customers.
+
+Business: [INDUSTRY] | What we do: [PRODUCTS] | City: [CITY]
+Our relationship with customers: [DESCRIBE — e.g. "regular B2B buyers", "one-time purchasers", "loyal retail customers for 5+ years"]
+Subtle business reminder: [REAL BENEFIT — the one thing customers know us for]
+Festival offer (if any): [OFFER or "None — this is purely a greeting"]
+
+CREATE 3 VERSIONS:
+VERSION 1 — PURE GREETING (No offer): Warm, personal-feeling despite being a broadcast. First 2 lines must make them feel valued, not mass-messaged. Max 60 words.
+
+VERSION 2 — GREETING + SOFT REMINDER: Greeting first (30 words), then ONE relevant business reminder natural to this season. E.g. "This festive season, our [service] is also available for [seasonal use case]." Max 80 words.
+
+VERSION 3 — GREETING + OFFER (If applicable): Festival wish first, offer second, CTA last. Terms clearly mentioned. Max 70 words.
+
+FORMAT RULES:
+- Start with their occasion (festival first, company second)
+- Use emojis sparingly — 2-3 max, only if they add feeling
+- End with: Company name + direct WhatsApp reply encouragement
+- No "dear customer" openings — sounds mass and distant</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pwa1')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-saffron">🤝</div><div><h3>19. WhatsApp Follow-Up After Festival</h3><p>Festival ke baad bhi relationship maintain karo — real opportunity window.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pwa2">Write post-festival WhatsApp follow-up messages for [COMPANY], sent 2-3 days after [FESTIVAL].
+
+Business: [INDUSTRY] | Products: [PRODUCTS] | Audience: [AUDIENCE]
+
+Why this matters: The festival is over. People are back to normal life and business decisions. This is the real purchase/enquiry window — not the day before the festival.
+
+CREATE:
+MESSAGE 1 — FOR PROSPECTS who showed interest before the festival but didn't convert:
+"Check in" message. Not pushy. Reference the festival naturally. Re-open the conversation gently. Max 50 words.
+
+MESSAGE 2 — FOR EXISTING CUSTOMERS you want to cross-sell to:
+Reference a specific seasonal need (post-festival scenario for your industry). One genuine, relevant offer or value. Max 60 words.
+
+MESSAGE 3 — FOR DORMANT CUSTOMERS (last order 6+ months ago):
+Gentle reconnect. Festival as natural excuse to reach out. No pressure. A question that invites conversation. Max 40 words.
+
+For each: Opening line (preview text — must be interesting), main body, call to action.
+
+Golden rule for all: Ask a QUESTION at the end — not "Please buy from us." Questions get replies; statements get ignored.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pwa2')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-blue">💼</div><div><h3>20. WhatsApp Status Content Plan</h3><p>7-din ka WhatsApp status plan — festival week ke liye.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pwa3">Create a 7-day WhatsApp Status content plan for [COMPANY] for [FESTIVAL WEEK — e.g. "Diwali week Nov 1-7"].
+
+Business: [INDUSTRY] | Products: [PRODUCTS] | Style: [BRAND PERSONALITY]
+
+Each day needs: A purpose (why post today), content type (text/image/video), exact content or prompt, and visual description.
+
+7-DAY PLAN:
+Day 1 (Festival -5 days): AWARENESS — Useful tip or product highlight. Educate without selling.
+Day 2 (Festival -4 days): BEHIND THE SCENES — Show your team/process preparing for festival orders.
+Day 3 (Festival -3 days): CUSTOMER STORY — One real customer success (with permission). Or a relevant FAQ answered.
+Day 4 (Festival -2 days): OFFER REVEAL (if applicable) — Clear, honest, specific. Or a countdown reminder.
+Day 5 (FESTIVAL DAY): GREETING — Pure emotion. Minimal text. Maximum impact. Company name in footer only.
+Day 6 (Festival +1 day): THANK YOU — Acknowledge customers, team, partners. Short and genuine.
+Day 7 (Festival +2 days): BUSINESS RESTART — Natural bridge back to work. Relevant seasonal offer or enquiry invitation.
+
+For each day: Status visual description (what to show), exact text overlay (max 6 words), caption for WhatsApp channel/group if you have one.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pwa3')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-gold">🎁</div><div><h3>21. Corporate Gifting Enquiry Prompt</h3><p>Festive season mein corporate gifting ek bada revenue opportunity hai.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="pwa4">Create a corporate gifting outreach message for [COMPANY] to send to potential corporate clients this [FESTIVAL] season.
+
+Our products suitable for gifting: [DESCRIBE — e.g. "Premium dry fruit boxes", "Branded merchandise", "Customized corporate hampers", "Handwoven sarees"]
+Minimum order quantity: [MOQ]
+Customization available: [YES/NO — describe]
+Delivery capability: [PAN India / Local / Regional]
+Contact: [WHATSAPP NUMBER / EMAIL]
+
+TARGET: HRs, Admin Managers, Business Owners at medium/large companies in [CITY + nearby cities].
+
+CREATE:
+1. COLD OUTREACH MESSAGE (They don't know us): Short, professional, specific about what we offer and why it's relevant for corporate gifting. Max 80 words. End with a question.
+
+2. WARM FOLLOW-UP (After first message, no reply in 3 days): Brief, adds new information (e.g. show a sample, share a price range, mention a past corporate client — only if permitted). Max 50 words.
+
+3. CATALOGUE SHARING MESSAGE: When they ask for more details — professional message to accompany the catalogue PDF. Max 40 words.
+
+KEY: Every message must have a specific, easy call to action. "Reply YES to receive our catalogue" or "Call/WhatsApp on [number] for a quick 5-min chat."</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('pwa4')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SALES CAMPAIGNS -->
+    <section id="sales" class="section">
+      <div class="secthead-row secthead">
+        <div><h2>🎯 Festival Offer & Sales Campaign Prompts</h2>
+        <p>Sales messaging jo pushy na lage — genuine value communicate karo.</p></div>
+        <span class="count-badge">4 Prompts</span>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="ctop"><div class="ico ico-saffron">💰</div><div><h3>22. Festival Offer Announcement</h3><p>Offer ko clearly, honestly, aur attractively announce karo.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="ps1">Write a [FESTIVAL] offer announcement for [COMPANY].
+
+THE ACTUAL OFFER (be precise):
+Offer type: [DISCOUNT / FREE ADD-ON / EARLY ACCESS / BUNDLE / EMI]
+Exact offer: [₹ amount or % discount, minimum order if any]
+Valid till: [EXACT DATE — not "limited time"]
+Who can avail: [ALL customers / New customers only / Bulk orders above ₹X]
+Terms: [Any genuine limitations]
+
+Business: [INDUSTRY] | Products: [PRODUCTS] | Audience: [AUDIENCE]
+
+CREATE:
+1. SOCIAL MEDIA POST (Instagram/Facebook): Festival first, offer second. Max 80 words + hashtags.
+2. WHATSAPP BROADCAST: Direct, clear, the offer in first 2 lines. Max 60 words.
+3. EMAIL SUBJECT LINE: 3 options — curiosity-based, benefit-based, urgency-based.
+4. EMAIL BODY: 150 words. Festival context → offer → terms → CTA → company details.
+5. POSTER HEADLINE: 5 words max that make someone want to read the full poster.
+
+HONESTY RULES:
+- If "upto 30% off" — specify which items are at 30%.
+- Do not use artificial scarcity ("only 10 pieces left") unless true.
+- Do not compare to original MRP you artificially inflated.
+- State T&C clearly — customers respect honesty and remember it.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('ps1')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-gold">📈</div><div><h3>23. Pre-Festival Lead Generation</h3><p>Festival se 2-3 hafte pehle leads collect karo — when they're planning purchases.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="ps2">Create a pre-[FESTIVAL] lead generation campaign for [COMPANY].
+
+Business: [INDUSTRY] | Products: [PRODUCTS] | Average order size: [₹ RANGE]
+Best customer type: [DESCRIBE ideal customer — industry, size, location]
+Festival-specific reason they need us NOW: [Why is this the right time to buy/enquire?]
+
+CREATE A 3-STEP PRE-FESTIVAL CAMPAIGN:
+
+WEEK 1 — AWARENESS: Educational content. "What to look for when buying [product] for [festival occasion]." Builds trust, positions expertise. NOT a sales post.
+
+WEEK 2 — CONSIDERATION: One genuine customer story or use case. How [COMPANY] helped someone prepare for [similar festival]. Or a product comparison/guide.
+
+WEEK 3 — CONVERSION: Specific festival offer + deadline + easy CTA. Now they trust you. Now sell.
+
+For each week:
+- WhatsApp message
+- Social media post (Instagram/LinkedIn depending on B2B/B2C)
+- What response to expect and how to follow up
+
+LEAD COLLECTION IDEA: Create a simple "Festival Requirement Form" — what product, what quantity, timeline, budget range. This auto-qualifies serious buyers.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('ps2')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-green">🏪</div><div><h3>24. Walk-in / Store Visit Campaign</h3><p>Offline business ke liye — customers ko store/showroom mein bulao.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="ps3">Create a [FESTIVAL] campaign to drive walk-in customers to [COMPANY]'s physical location.
+
+Business type: [INDUSTRY] | Store location: [FULL ADDRESS with landmarks]
+Nearest landmark: [e.g. "Opp. Lal Darvaja, Surat" or "Near Rajiv Chowk Metro, Delhi"]
+Operating hours during festival: [DAYS AND TIMES]
+Parking available: [YES/NO/NEARBY]
+Festival in-store experience: [What's special? New collection? Free samples? Lucky draw? Decoration?]
+
+CREATE:
+1. "COME VISIT US" WHATSAPP MESSAGE: Warm invitation. Why visiting the store is worth it this festival. Include exact location with landmark. 60 words max.
+
+2. GOOGLE MAPS SHARING TIP: How to create and share your exact Google Maps link for ease. (Instructions for the SME owner.)
+
+3. IN-STORE ACTIVATION IDEAS (3 ideas, zero/low budget):
+   - One photo moment customers will share on their own Instagram
+   - One free add-on that creates goodwill (e.g. free gift wrapping, complimentary chai)
+   - One display or banner that makes visitors feel the festival mood
+
+4. FOLLOW-UP AFTER VISIT: What to say to customers who visited but didn't buy. Gentle message to keep the relationship open.
+
+5. SOCIAL PROOF POST: After visits happen — a post showing the busy store (with permission), customer activity, without being pushy.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('ps3')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ctop"><div class="ico ico-blue">🔄</div><div><h3>25. Re-engage Lost Customers</h3><p>Jinhone pehle kharida tha lekin wapas nahi aaye — festival is the perfect excuse.</p></div></div>
+          <div class="cbody">
+            <div class="label">COPY-READY PROMPT</div>
+            <div class="prompt" id="ps4">Write a [FESTIVAL] re-engagement campaign for [COMPANY] targeting customers who last purchased 6-18 months ago.
+
+Business: [INDUSTRY] | Products: [PRODUCTS]
+Why they may have stopped buying: [HONEST ASSESSMENT — e.g. "price sensitivity", "found competitor", "seasonal purchase was one-time", "we stopped following up"]
+What's new or improved: [ONE GENUINE IMPROVEMENT — new collection, better pricing, faster delivery, new service]
+
+CREATE:
+INITIAL MESSAGE — "We Miss You" (sent on festival):
+Acknowledge the time gap naturally without being awkward. Festival occasion as warm reason to reconnect. One genuine new reason to consider us again. Max 60 words. Ends with an invitation, not a demand.
+
+IF THEY REPLY POSITIVELY — follow-up script with:
+- Acknowledge their previous purchase
+- Share what's new
+- Make it easy to re-purchase (special returning customer discount if applicable)
+
+IF NO REPLY IN 7 DAYS — final check-in:
+Short, not desperate. Offers opt-out gracefully ("No worries if now's not the right time — hope to serve you again someday").
+
+RULE: Never guilt-trip customers for leaving. Never make them feel they owe you. Win them back with value, not emotional pressure.</div>
+            <div class="actions"><button class="btn btn-primary" onclick="copyText('ps4')">📋 Copy Prompt</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FESTIVAL CALENDAR -->
+    <section id="calendar" class="section">
+      <div class="secthead secthead-row">
+        <div><h2>🪔 Indian Festival Marketing Calendar</h2>
+        <p>Har festival ke liye marketing opportunity rating aur ready action plan.</p></div>
+      </div>
+
+      <div class="tabs" id="calTabs">
+        <button class="tab active" onclick="showCalendar('q4',this)">Q4 — Oct-Dec (PEAK SEASON 🔥)</button>
+        <button class="tab" onclick="showCalendar('q1',this)">Q1 — Jan-Mar</button>
+        <button class="tab" onclick="showCalendar('q2',this)">Q2 — Apr-Jun</button>
+        <button class="tab" onclick="showCalendar('q3',this)">Q3 — Jul-Sep</button>
+      </div>
+      <div class="fest-grid" id="calContent"></div>
+    </section>
+
+    <!-- INDUSTRY PLAYBOOKS -->
+    <section id="industries" class="section">
+      <div class="secthead secthead-row">
+        <div><h2>🏭 Industry-Specific Playbooks</h2>
+        <p>Aapki exact industry ke liye customized festival strategy — koi generic advice nahi.</p></div>
+      </div>
+
+      <div class="trainer-says">
+        <div class="trainer-avatar">🎓</div>
+        <div class="trainer-text">
+          <strong>Trainer Rule — Specificity Wins Every Time</strong>
+          <p>A jeweller's Dhanteras campaign and a garment manufacturer's Dhanteras campaign cannot look the same. <b>Apni industry ka section padho, wahi angle use karo</b> — tab aapka competitor jo same generic "Diwali offer" bhej raha hai, usse aap 10 gunna aage honge. Ye real differentiation hai.</p>
+        </div>
+      </div>
+
+      <div class="tabs" id="indTabs">
+        <button class="tab active" onclick="showIndustry('textiles',this)">👗 Garments</button>
+        <button class="tab" onclick="showIndustry('jewellery',this)">💎 Jewellery</button>
+        <button class="tab" onclick="showIndustry('manufacturing',this)">🏭 Manufacturing</button>
+        <button class="tab" onclick="showIndustry('food',this)">🍽️ Food & Hotel</button>
+        <button class="tab" onclick="showIndustry('it',this)">💻 IT & Tech</button>
+        <button class="tab" onclick="showIndustry('realestate',this)">🏗️ Real Estate</button>
+        <button class="tab" onclick="showIndustry('ca',this)">⚖️ CA & Services</button>
+        <button class="tab" onclick="showIndustry('solar',this)">☀️ Solar & Energy</button>
+        <button class="tab" onclick="showIndustry('retail',this)">🛍️ Retail & D2C</button>
+      </div>
+      <div class="grid-3" id="indContent"></div>
+    </section>
+
+    <!-- WEEKLY RECURRING -->
+    <section id="recurring" class="section">
+      <div class="secthead"><h2>🔁 Weekly Content Ideas (Year-Round)</h2>
+      <p>Festival ke alawa bhi consistent rahna zaroori hai. Ye weekly content aapko active aur relevant rakhta hai.</p></div>
+      <div class="tabs" id="dayTabs">
+        <button class="tab active" onclick="showDays('weekly',this)">Weekly</button>
+        <button class="tab" onclick="showDays('monthly',this)">Monthly</button>
+        <button class="tab" onclick="showDays('business',this)">Business Moments</button>
+        <button class="tab" onclick="showDays('observance',this)">National Days</button>
+      </div>
+      <div class="grid" id="dayContent"></div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section id="workflow" class="section">
+      <div class="secthead"><h2>⚡ 20-Minute Festival Campaign Workflow</h2>
+      <p>Iss step-by-step plan ko follow karo — 20 minute mein ek complete campaign ready.</p></div>
+      <div class="steps-flow">
+        <div class="step-card"><div class="time-badge">⏱ Min 1-2</div><div class="step-num">STEP 01</div><strong>Choose your moment</strong><p>Festival, recurring day, customer milestone, ya seasonal business opportunity. Skip irrelevant occasions.</p></div>
+        <div class="step-card"><div class="time-badge">⏱ Min 3-5</div><div class="step-num">STEP 02</div><strong>Fill Campaign Builder</strong><p>Company, industry, audience, one real benefit, website. Use specific language — not generic descriptions.</p></div>
+        <div class="step-card"><div class="time-badge">⏱ Min 6-10</div><div class="step-num">STEP 03</div><strong>Generate 3 concepts</strong><p>Emotional, premium, industry-specific. Use the prompts from this lab in ChatGPT, Claude, or Gemini.</p></div>
+        <div class="step-card"><div class="time-badge">⏱ Min 11-14</div><div class="step-num">STEP 04</div><strong>Create visual in Canva</strong><p>Use the poster prompt. OR use pre-made Canva festival template and update with actual content.</p></div>
+        <div class="step-card"><div class="time-badge">⏱ Min 15-16</div><div class="step-num">STEP 05</div><strong>Add real branding</strong><p>Your actual logo, exact website, company name spelling. Don't trust AI to get these right.</p></div>
+        <div class="step-card"><div class="time-badge">⏱ Min 17-18</div><div class="step-num">STEP 06</div><strong>Write WhatsApp message</strong><p>Short, specific, festival first — company second. Use WhatsApp prompt from this lab.</p></div>
+        <div class="step-card"><div class="time-badge">⏱ Min 19</div><div class="step-num">STEP 07</div><strong>Run quality checklist</strong><p>Check spelling, logo, URL, cultural fit, mobile readability — before hitting send.</p></div>
+        <div class="step-card"><div class="time-badge">⏱ Min 20</div><div class="step-num">STEP 08</div><strong>Send & track responses</strong><p>Note real replies, enquiries, and feedback — not just "seen" counts. Meaningful responses = it worked.</p></div>
+      </div>
+
+      <div class="notice notice-blue" style="margin-top:24px">
+        <b>🎓 Trainer's 3 Golden Rules:</b><br>
+        <b>1. Festival first, company second.</b> The occasion earns attention; the brand earns recall. Don't reverse this.<br>
+        <b>2. Real beats perfect.</b> An authentic behind-the-scenes photo beats a generic stock Diwali graphic every time.<br>
+        <b>3. Useful beats promotional.</b> One genuinely useful tip during festival season is worth 10 "Happy Diwali" broadcasts.
+      </div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section id="checklist" class="section">
+      <div class="secthead"><h2>✅ Pre-Send Quality Checklist</h2>
+      <p>Bhejne se pehle ye sabka tick karo — ek missed check = embarrassing mistake in front of thousands.</p></div>
+      <div class="checklist" id="checklistItems"></div>
+      <div class="notice notice-green" style="margin-top:18px">
+        <b>🏆 If all boxes are checked:</b> Aapka campaign ready hai. Send karo with confidence!<br>
+        <b>⚠️ If anything is unchecked:</b> Fix it first. One mistake in a festive greeting seen by 500 contacts = lasting damage to your brand image.
+      </div>
+      <div class="actions" style="margin-top:16px">
+        <button class="btn btn-secondary" onclick="resetChecklist()">🔄 Reset Checklist</button>
+        <button class="btn btn-green" onclick="checkAll()">✅ Mark All Complete</button>
+      </div>
+    </section>
+
+    <footer>
+      <strong>भारत SME Festival Marketing Lab</strong><br>
+      Your AI Marketing Trainer for Indian Festivals, Seasons & Everyday Business Moments<br>
+      <span style="opacity:.7">Use with any AI tool — ChatGPT, Claude, Gemini, Copilot. Customize with your real business facts. Keep messages authentic, useful, and respectful. 🇮🇳</span>
+    </footer>
+  </div>
+</main>
+</div>
+
+<div class="toast" id="toast">✅ Copied!</div>
+
+<script>
+// ===== DATA =====
+const industries = {
+  textiles:{
+    label:"Garments & Textiles",
+    emoji:"👗",
+    color:"linear-gradient(135deg,#FF9A9E,#FAD0C4)",
+    cards:[
+      {title:"Diwali Strategy",angle:"New Collection Launch Window",
+       desc:"Diwali se 3 hafte pehle naye collection ka teaser start karo. Saree retailers ke dealers ko first. Customers ko 'festive collection preview' WhatsApp karo.",
+       prompt:"Create a Diwali new collection launch campaign for [GARMENT/TEXTILE COMPANY] targeting [RETAILERS/END CONSUMERS]. New collection: [DESCRIBE]. Show the design inspiration, craftsmanship story, and festive styling angle. Language: [HINDI/HINGLISH/ENGLISH]. Format: 3-slide carousel + WhatsApp broadcast."},
+      {title:"Dhanteras Opportunity",angle:"Gifting & Corporate Orders",
+       desc:"Corporate gifting orders aate hain October mein. October 1 se outreach shuru karo. Customized gifting (company logo on saree/fabric) ek premium offer hai.",
+       prompt:"Create a corporate gifting pitch for [TEXTILES COMPANY] for Dhanteras/Diwali season. Offer: Customized corporate sarees/fabrics with company branding. MOQ: [QUANTITY]. Delivery: [TIMELINE]. Target: HR managers and admin heads at corporates in [CITY]. WhatsApp + email version."},
+      {title:"Year-Round Content",angle:"Craft & Process Stories",
+       desc:"Behind-the-scenes content — loom videos, dyeing process, design team, quality check — garment businesses ke paas world-class visual content hai. Use it!",
+       prompt:"Create a 'Craft Story' Instagram Reel script for [TEXTILES COMPANY] showing [SPECIFIC PROCESS — e.g. hand-block printing, power loom, embroidery]. Connect this craftsmanship to what customers get. 15-second storyboard. Authentic, real footage preferred."}
+    ]
+  },
+  jewellery:{
+    label:"Jewellery & Accessories",
+    emoji:"💎",
+    color:"linear-gradient(135deg,#F5A623,#F7D488)",
+    cards:[
+      {title:"Dhanteras — Peak Season",angle:"Gold Buying Auspiciousness",
+       desc:"Dhanteras pe gold/jewellery khareedna auspicious hai. Ye aapka biggest day hai. Pre-Dhanteras bookings, hallmarking highlight, BIS certification feature karo.",
+       prompt:"Create a Dhanteras campaign for [JEWELLERY BUSINESS]. Highlight: [HALLMARKED/BIS CERTIFIED/GOLD RATE TRANSPARENCY]. Audience: families planning Dhanteras purchases. Show: design range, price starting points (₹X), making charges transparency. Language: [HINGLISH]. Format: poster + WhatsApp message."},
+      {title:"Akshaya Tritiya",angle:"Highest Auspicious Buying Day",
+       desc:"Akshaya Tritiya pe gold khareedna = eternal prosperity. Early booking discounts, lightweight collection for first-time buyers, SIP gold schemes — sab relevant hain.",
+       prompt:"Create an Akshaya Tritiya campaign for [JEWELLERY COMPANY]. Offer: [EARLY BOOKING DISCOUNT / LIGHT WEIGHT COLLECTION / GOLD COIN SCHEMES]. Why buy now vs later: [GOLD RATE / MAKING CHARGE BENEFIT]. Audience: first-time gold buyers + existing customers upgrading."},
+      {title:"Trust Marketing",angle:"Hallmark, Certificate, Transparency",
+       desc:"Jewellery mein trust = sales. BIS Hallmark, purity certificates, transparent making charges, buy-back policy — ye sab marketing content hai. Use it daily.",
+       prompt:"Create a trust-building content series for [JEWELLERY COMPANY] — 4 posts: (1) What BIS Hallmark means for buyers, (2) How making charges work — transparent breakdown, (3) Our buy-back policy explained, (4) How to identify genuine vs duplicate gold. Educational, not salesy."}
+    ]
+  },
+  manufacturing:{
+    label:"Manufacturing & Industrial",
+    emoji:"🏭",
+    color:"linear-gradient(135deg,#667EEA,#764BA2)",
+    cards:[
+      {title:"B2B Festival Approach",angle:"Relationship Over Transaction",
+       desc:"B2B manufacturers ke liye festival = relationship strengthen karo. Client gifting, dealer meetings, new catalogue launch — ye sab festival window mein effectively hota hai.",
+       prompt:"Create a B2B Diwali relationship campaign for [MANUFACTURING COMPANY] targeting [CLIENT TYPE — dealers/OEM buyers/retailers]. Approach: No aggressive selling. Focus on: year-end partnership acknowledgment, upcoming season preview, and one genuine business value reminder. Format: email + WhatsApp."},
+      {title:"Year-End Planning Content",angle:"Q4 Business Momentum",
+       desc:"November-December mein B2B buyers new year ka budget plan karte hain. Iss window mein educational content — buying guide, product comparison, ROI calculator — bahut effective hai.",
+       prompt:"Create a Q4 business content piece for [MANUFACTURING COMPANY]'s B2B buyers. Topic: 'How to plan [PRODUCT CATEGORY] requirements for next FY.' Include: demand forecasting tips, lead time guide, quality specification checklist. Position [COMPANY] as an expert advisor."},
+      {title:"Factory Open House Idea",angle:"Show Don't Tell",
+       desc:"Festive season se pehle ek client visit / factory open house karein. Prospects ko directly process dikhao. Ye trust build karta hai jo koi brochure nahi kar sakta.",
+       prompt:"Create a 'Factory Visit Invitation' campaign for [MANUFACTURING COMPANY]. Audience: key prospects and existing clients. Content: why visiting our facility matters, what they'll see, what questions will be answered, and a clear RSVP process. Formal invite + WhatsApp message."}
+    ]
+  },
+  food:{
+    label:"Food & Hospitality",
+    emoji:"🍽️",
+    color:"linear-gradient(135deg,#F093FB,#F5576C)",
+    cards:[
+      {title:"Festive Gifting Menu",angle:"Custom Hampers & Catering",
+       desc:"Festival hampers, custom mithai boxes, corporate catering orders — ye sab October mein confirm hote hain. Pre-order push September se shuru karein.",
+       prompt:"Create a festive gifting campaign for [FOOD BUSINESS — restaurant/caterer/sweet shop]. Products: [GIFT BOXES / HAMPERS / CATERING PACKAGES]. Custom options: [BRANDING / SIZE / CONTENTS]. Min order: [MOQ]. Delivery area: [COVERAGE]. Target: corporate HR + families + event planners. WhatsApp pitch + poster."},
+      {title:"Diwali Special Menu",angle:"Limited Edition Creates Urgency",
+       desc:"'Festive Special' items — jo sirf Diwali mein milte hain — excitement create karte hain. Kaju katli, dry fruit boxes, special thali — limited batches mein banana urgency create karta hai.",
+       prompt:"Create a 'Diwali Special Menu Launch' campaign for [FOOD BUSINESS]. Special items: [LIST 3-5 GENUINE FESTIVE ITEMS]. Why special: [SEASONAL INGREDIENT / RECIPE / PRESENTATION]. Availability: [DATES AND QUANTITIES]. Format: Instagram reveal post + pre-order WhatsApp."},
+      {title:"Hygiene & Quality Trust",angle:"Food Safety = Brand Value",
+       desc:"Food businesses ke liye trust = hygiene + quality. Festival mein FSSAI certification, kitchen hygiene photos, ingredient sourcing stories — inna powerful marketing content hai.",
+       prompt:"Create a food safety trust campaign for [FOOD BUSINESS] for festive season. Highlight: [FSSAI LICENSE / KITCHEN HYGIENE / INGREDIENT SOURCING / ZERO ADULTERATION]. Format: Behind-the-scenes kitchen tour reel + Instagram infographic about food quality standards. Educational, not defensive."}
+    ]
+  },
+  it:{
+    label:"IT & Technology",
+    emoji:"💻",
+    color:"linear-gradient(135deg,#4facfe,#00f2fe)",
+    cards:[
+      {title:"B2B Festival Strategy",angle:"End-of-Year Budget Window",
+       desc:"October-December mein IT budgets finalize hote hain. Prospects ke saath festival ka bahana use karke conversation restart karo. Timing is perfect for new pitches.",
+       prompt:"Create a Q4 budget cycle campaign for [IT/SOFTWARE COMPANY] targeting [B2B CLIENTS — SMEs / enterprises / specific industry]. Message: 'Year-end is the right time to evaluate [YOUR SOLUTION].' Include ROI conversation starter, implementation timeline benefit of starting now, and a low-commitment next step (demo/consultation)."},
+      {title:"Client Success Story",angle:"Festival = Milestone Moment",
+       desc:"Festival ke time client success stories share karna natural lagta hai — 'Iss saal humne saath milke ye achieve kiya.' Testimonial content + case study = powerful.",
+       prompt:"Create a Diwali 'Year in Review' client success content for [IT COMPANY]. Use only verified data: [CLIENT NAME if permitted / OUTCOME / METRIC]. Format: (1) LinkedIn post — reflective, specific, not boastful. (2) Client appreciation graphic. (3) Brief case study snippet for website."},
+      {title:"Digital Festivity",angle:"Automate the Greetings, Humanize the Follow-up",
+       desc:"IT companies ko dikhana chahiye ki tech + human touch = best experience. Automated greeting + personal follow-up call = perfect combination to demonstrate your product philosophy.",
+       prompt:"Create a 'Tech + Human' festival campaign for [IT/AUTOMATION COMPANY]. Concept: Show how we automate repetitive things so our clients (and we) can focus on what matters — genuine relationships. Festival message: automation as enabler of real connections. Target: [AUDIENCE]. Format: blog post excerpt + LinkedIn visual + WhatsApp."}
+    ]
+  },
+  realestate:{
+    label:"Real Estate & Construction",
+    emoji:"🏗️",
+    color:"linear-gradient(135deg,#43e97b,#38f9d7)",
+    cards:[
+      {title:"Festive Season Launches",angle:"Diwali = Traditional Launch Window",
+       desc:"Diwali pe ghar khareedna shubh maana jaata hai. Ye the most culturally aligned time for real estate launches. New project reveals, pre-launch bookings — all happen now.",
+       prompt:"Create a Diwali new project launch campaign for [REAL ESTATE DEVELOPER]. Project: [NAME, LOCATION, TYPE — 2/3BHK/commercial]. Key USP: [RERA REG NO / AMENITIES / POSSESSION DATE]. Festival angle: New home = new beginning in life. Target: [BUYERS — first-time/upgrade/investor]. Format: teaser post + reveal post + WhatsApp enquiry invite."},
+      {title:"RERA Trust Campaign",angle:"Compliance as Confidence",
+       desc:"Real estate buyers sabse pehle trust dhoondhte hain. RERA registration, on-time delivery record, completion certificates — festival mein ye advertise karna powerful hai.",
+       prompt:"Create a trust campaign for [REAL ESTATE COMPANY] for festive season. Highlight: RERA registration no. [NUMBER], [NUMBER] projects delivered on time, builder grade certifications. Why this matters to buyers: [EXPLAIN RERA PROTECTION]. Format: educational infographic + testimonial post."},
+      {title:"Home Loan Connection",angle:"EMI Festival Offers",
+       desc:"Festival mein banks aur NBFCs home loans pe special rates dete hain. Iss window ko highlight karo — 'Aaj ka ghar, kal ki property value.'",
+       prompt:"Create a festive EMI campaign for [REAL ESTATE COMPANY]. Premise: Current festive home loan rates [CURRENT RATE if known] + festive price [YOUR OFFER]. Show: monthly EMI for typical unit, total cost comparison, why buying during festival makes financial sense. Disclaimer: include standard investment risk note."}
+    ]
+  },
+  ca:{
+    label:"CA / Legal / Consulting",
+    emoji:"⚖️",
+    color:"linear-gradient(135deg,#30cfd0,#330867)",
+    cards:[
+      {title:"Year-End Tax Planning",angle:"Festival = Financial Planning Season",
+       desc:"October-November mein clients apna advance tax, investments, aur year-end planning ke baare mein sochte hain. Educational content + consultation offer = perfect timing.",
+       prompt:"Create a festive season tax planning content campaign for [CA FIRM]. Topic: 'Key financial decisions to make before Dec 31.' Include: advance tax payment reminder, tax-saving investment window, year-end business compliance checklist. Format: LinkedIn article + WhatsApp broadcast + infographic. Do NOT give specific tax advice without client context."},
+      {title:"Diwali Greeting — Professional",angle:"Depth Over Decor",
+       desc:"CA firms ki Diwali greeting mein ek useful insight zaroor honi chahiye. Sirf 'Shubh Deepawali' nahi — ek professional insight jo clients ko genuinely useful lage.",
+       prompt:"Create a Diwali greeting for [CA/LAW FIRM] that positions them as a knowledgeable, trusted advisor. Include: Festival wish (genuine, short) + ONE useful professional insight for this time of year (tax deadline / compliance reminder / budget planning note). Tone: warm professional, not stiff. 80 words max. Then a separate formal letter version for high-value clients."},
+      {title:"Client Retention Content",angle:"Proactive Advice = Loyalty",
+       desc:"CA firms aur consultants ke liye best marketing = proactive advice. 'Hamne socha aapko ye pata hona chahiye' — ye message clients ko yaad rehta hai.",
+       prompt:"Create a 'Proactive Client Update' message for [CA/CONSULTING FIRM] to send during festival season. Topic: [RELEVANT REGULATORY UPDATE / COMPLIANCE DEADLINE / TAX SAVING OPPORTUNITY]. Format: 1. WhatsApp message (60 words, plain language, no jargon), 2. Email version (150 words, detailed, with source reference), 3. LinkedIn educational post. Cite only verified information."}
+    ]
+  },
+  solar:{
+    label:"Solar & Renewable Energy",
+    emoji:"☀️",
+    color:"linear-gradient(135deg,#F5A623,#F7E98E)",
+    cards:[
+      {title:"Winter Solar Pitch",angle:"Dispel the Myth",
+       desc:"'Winter mein solar kaam nahi karta' — ye sabse common objection hai. Educate karein. Winter mein solar efficiency 10-15% better hoti hai. Ye educational content = trust builder.",
+       prompt:"Create a winter season educational campaign for [SOLAR COMPANY] dispelling 'solar doesn't work in winter' myth. Include verified facts about solar efficiency in winter, actual performance data if available, and a case study of [CITY] customer in winter months. Format: infographic + WhatsApp broadcast + LinkedIn post."},
+      {title:"Festive Season ROI Campaign",angle:"Investment Angle at Diwali",
+       desc:"Diwali pe log bade purchases karte hain. Solar system = long-term investment. 'Iss Diwali, ek investment jo 25 saal tak returns deta hai' — powerful positioning.",
+       prompt:"Create a Diwali investment angle campaign for [SOLAR COMPANY]. Key message: Solar installation = the best Diwali investment — saves ₹[X] per month, payback in [Y] years, 25-year life. Festival offer: [SUBSIDY DETAILS / EMI OPTION / FREE INSTALLATION]. RULE: Only use verified government subsidy figures (PM Surya Ghar Yojana 2024 actual rates). Include DISCOM approval process clarity."},
+      {title:"Government Scheme Education",angle:"PM Surya Ghar Yojana",
+       desc:"PM Surya Ghar Muft Bijli Yojana — 1 crore households ke liye subsidy. Customers confuse hote hain. Education = differentiation. Clarity dene wala salesman trusted salesman hai.",
+       prompt:"Create an educational content piece for [SOLAR COMPANY] explaining PM Surya Ghar Muft Bijli Yojana (2024 current scheme). Include: who is eligible, subsidy amount by category, application process steps, what documents are needed, timeline expectation. VERIFY all details from official government source (pmsuryaghar.gov.in) before publishing. Format: FAQ infographic + WhatsApp explainer."}
+    ]
+  },
+  retail:{
+    label:"Retail & D2C Consumer Brand",
+    emoji:"🛍️",
+    color:"linear-gradient(135deg,#f093fb,#f5576c)",
+    cards:[
+      {title:"Festive Collection Drop",angle:"FOMO + Exclusivity",
+       desc:"D2C brands ke liye festive collection launch ek event hona chahiye. Waitlist, early access, limited pieces — genuine exclusivity creates buzz.",
+       prompt:"Create a festive collection launch campaign for [D2C/RETAIL BRAND]. Collection: [NAME + DESCRIPTION]. Limited to: [ACTUAL QUANTITY — be honest]. Early access for: [EXISTING CUSTOMERS / EMAIL LIST]. Launch date: [DATE]. Format: Teaser → Waitlist → Launch → Last-chance sequence. 4 messages, 4 days. Channel: Instagram + WhatsApp."},
+      {title:"User Generated Content Drive",angle:"Customer Photos = Free Advertising",
+       desc:"Festival mein customers celebrate karte hain — photos lete hain. UGC campaign = free content + social proof. Ek hashtag + ek small incentive = bahut content milta hai.",
+       prompt:"Create a UGC (User Generated Content) festival campaign for [RETAIL/D2C BRAND]. Campaign mechanic: [e.g. 'Tag us wearing our collection in your Diwali photos']. Hashtag: [CREATE A UNIQUE ONE]. Incentive: [Small genuine reward — discount voucher / feature on page / free product]. Legal note about sharing rights. Caption for announcing + reminder."},
+      {title:"Post-Purchase Thank You",angle:"Turning Buyers into Brand Advocates",
+       desc:"Festival mein jo loga ne kharida — unhe ek unexpected follow-up milna chahiye. 'Thank you + care tip + invite to share their photo' = loyalty ka foundation.",
+       prompt:"Create a post-purchase festival thank-you sequence for [RETAIL BRAND] customers who bought during [FESTIVAL]. Message 1 (Day of delivery): Warm thank-you + product care tip. Message 2 (Day 3): Invite to share their experience/photo. Message 3 (Day 7): Gentle review request. All 3 messages short, genuine, non-pushy. WhatsApp format."}
+    ]
+  }
+};
+
+const calendar = {
+  q4:[
+    {date:"Oct 2-12, 2024",title:"Navratri / Garba Season",desc:"Garba, dandiya, new clothes, jewellery — retail businesses peak.",stars:"★★★★☆",opp:"Jewellery, garments, food"},
+    {date:"Oct 12, 2024",title:"🏹 Dussehra / Vijayadashami",desc:"Victory of good over evil. B2B can use 'beginning new goals' angle.",stars:"★★★☆☆",opp:"All business types"},
+    {date:"Oct 20, 2024",title:"🌙 Karwa Chauth",desc:"Women's celebration — jewellery, fashion, food, beauty businesses peak.",stars:"★★★★☆",opp:"Jewellery, fashion, food"},
+    {date:"Oct 29, 2024",title:"🪙 Dhanteras",desc:"BIGGEST jewellery & gold buying day of the year. Every business can connect.",stars:"★★★★★",opp:"Jewellery, retail, all"},
+    {date:"Oct 31 - Nov 1, 2024",title:"🪔 Diwali",desc:"India's most powerful festival marketing opportunity. 2-week window.",stars:"★★★★★",opp:"Every business type"},
+    {date:"Nov 2-3, 2024",title:"👫 Bhai Dooj",desc:"Sibling celebration — gifting, food, family businesses.",stars:"★★★☆☆",opp:"Gifting, food, retail"},
+    {date:"Nov 7-8, 2024",title:"🌅 Chhath Puja",desc:"UP/Bihar/Jharkhand focused. Regional businesses, food, community.",stars:"★★★☆☆",opp:"Regional focus"},
+    {date:"Nov 15, 2024",title:"Children's Day",desc:"Education, food, entertainment businesses target parents.",stars:"★★★☆☆",opp:"Education, food, retail"},
+    {date:"Dec 25, 2024",title:"🎄 Christmas & New Year",desc:"Pan-India celebration now. Urban audiences, gifting, hospitality, D2C brands.",stars:"★★★★☆",opp:"Retail, food, hospitality"},
+    {date:"Dec 31, 2024",title:"🎆 New Year's Eve",desc:"Year-end reflection + new year energy. All businesses can connect.",stars:"★★★★☆",opp:"Every business type"},
+    {date:"Nov-Dec",title:"📊 Year-End B2B Window",desc:"B2B businesses: budget finalization, order placements, tax planning discussions.",stars:"★★★★★",opp:"Manufacturing, IT, CA, Solar"},
+    {date:"Oct-Dec",title:"💼 Corporate Gifting Season",desc:"HR departments finalize gifting by October. Food, textiles, D2C — pitch now.",stars:"★★★★★",opp:"Food, textiles, D2C brands"}
+  ],
+  q1:[
+    {date:"Jan 14, 2025",title:"🌾 Makar Sankranti / Pongal / Uttarayan",desc:"Pan-India harvest festival. Kite flying (Gujarat), sesame sweets, sun worship.",stars:"★★★★☆",opp:"Food, textiles, regional"},
+    {date:"Jan 26, 2025",title:"🇮🇳 Republic Day",desc:"National pride. Service businesses, manufacturing can use 'Make in India' angle.",stars:"★★★☆☆",opp:"Manufacturing, services"},
+    {date:"Feb 14, 2025",title:"❤️ Valentine's Day",desc:"Growing in India. D2C, food, jewellery, fashion — urban audiences.",stars:"★★★☆☆",opp:"Retail, food, jewellery"},
+    {date:"Mar 8, 2025",title:"👩 International Women's Day",desc:"Celebrate women customers, employees, entrepreneurs. Authentic only.",stars:"★★★★☆",opp:"All businesses"},
+    {date:"Mar 14, 2025",title:"🎨 Holi",desc:"Colors, celebration, new beginnings. Consumer brands, food, fashion.",stars:"★★★★☆",opp:"FMCG, food, textiles"},
+    {date:"Mar 31, 2025",title:"📊 Financial Year End",desc:"BIGGEST B2B opportunity. Invoicing, orders, tax planning — all happen now.",stars:"★★★★★",opp:"All B2B businesses"}
+  ],
+  q2:[
+    {date:"Apr 1, 2025",title:"📈 New Financial Year",desc:"New budgets, new goals, new purchases. Best time to pitch B2B clients.",stars:"★★★★★",opp:"All B2B businesses"},
+    {date:"Apr (Variable)",title:"🌺 Ram Navami / Gudi Padwa / Ugadi",desc:"Regional new year celebrations — Maharashtra, Karnataka, Andhra.",stars:"★★★☆☆",opp:"Regional focused"},
+    {date:"Apr-May (Variable)",title:"🌙 Eid-ul-Fitr",desc:"Major celebration — clothing, food, gifting. Genuine, respectful approach.",stars:"★★★★☆",opp:"Textiles, food, retail"},
+    {date:"May 12, 2025",title:"☀️ Akshaya Tritiya",desc:"GOLD buying season. Jewellery, real estate, investments — all surge.",stars:"★★★★★",opp:"Jewellery, real estate"},
+    {date:"May (Variable)",title:"🐣 Summer School Break",desc:"Education, travel, food — families in summer planning mode.",stars:"★★★☆☆",opp:"Education, food, retail"},
+    {date:"Jun 5, 2025",title:"🌿 Environment Day",desc:"Solar, sustainability businesses — but ONLY with verified green claims.",stars:"★★★☆☆",opp:"Solar, eco brands"}
+  ],
+  q3:[
+    {date:"Jul-Aug",title:"🌧️ Monsoon & Business Restart",desc:"Post-monsoon is when B2B restarts planning. Good window for B2B campaigns.",stars:"★★★☆☆",opp:"Manufacturing, B2B"},
+    {date:"Aug 15, 2025",title:"🇮🇳 Independence Day",desc:"National pride. Every business can connect to India's growth story authentically.",stars:"★★★★☆",opp:"Every business"},
+    {date:"Aug (Variable)",title:"🎀 Raksha Bandhan",desc:"Sibling love — gifting, food, fashion, D2C brands.",stars:"★★★★☆",opp:"Retail, food, gifting"},
+    {date:"Aug (Variable)",title:"🪈 Janmashtami",desc:"Krishna theme — wisdom, joy, music. Food businesses, community connection.",stars:"★★★☆☆",opp:"Food, community"},
+    {date:"Sep (Variable)",title:"🐘 Ganesh Chaturthi",desc:"Maharashtra focus but growing pan-India. 10-day celebration. Community brands.",stars:"★★★★☆",opp:"Food, Maharashtra focus"},
+    {date:"Sep-Oct",title:"🛍️ Pre-Festive Season Prep",desc:"Buyers start planning Diwali purchases. START YOUR CAMPAIGNS NOW — not in October.",stars:"★★★★★",opp:"All businesses"}
+  ]
+};
+
+const weeklyDays = {
+  weekly:[
+    {title:"Monday Motivation — But Make It Useful",desc:"Empty motivation posts bore people. One actionable tip for customers' work week.",prompt:"Create a Monday message for [COMPANY] in [INDUSTRY] giving [AUDIENCE] ONE practical tip to start their business week better. Keep it specific to their industry, 40 words max, end with a subtle brand sign-off connected to [REAL BENEFIT]."},
+    {title:"Wednesday FAQ — Answer Before They Ask",desc:"Pick the question customers ask most often. Answer it simply and directly.",prompt:"Write a midweek FAQ post for [COMPANY]. Customer question: [MOST COMMON QUESTION ABOUT YOUR PRODUCT/SERVICE]. Give: clear answer (verified facts only), visual infographic idea (5 points), WhatsApp caption 35 words. This is education, not promotion."},
+    {title:"Friday Win — Real Story from This Week",desc:"One genuine moment from your business this week — delivered order, client feedback, team moment.",prompt:"Create a Friday story post for [COMPANY] based on this real moment from this week: [DESCRIBE REAL MOMENT]. Why it matters to customers. 3 photo suggestions. Warm caption 50 words. Do not invent details."},
+    {title:"Saturday Tip — Help Customers Do More",desc:"One tip that makes customers better at using your product or service.",prompt:"Create a Saturday 'power tip' for [COMPANY]'s customers about getting more value from [PRODUCT/SERVICE]. Give: before situation, the tip, after result, visual idea. 40 words. Teach first, promote last."},
+    {title:"Sunday Planning Reminder",desc:"A useful planning checklist for customers before the new week — saveable content.",prompt:"Create a Sunday planning checklist for [AUDIENCE] in [INDUSTRY] for the coming week. 5 actionable points, genuinely useful, based on real industry knowledge. Subtle [COMPANY] footer. Design as a saveable visual."}
+  ],
+  monthly:[
+    {title:"Month Beginning — Fresh Start Message",desc:"A meaningful new month message with one practical tip for customers.",prompt:"Write a new month message from [COMPANY] to [AUDIENCE]. Pair sincere wish with ONE practical focus for this month in [INDUSTRY]. Avoid generic success quotes. Include one real industry insight for this time of year."},
+    {title:"Month-End — Useful Reminder",desc:"Close the month with a relevant checklist, reorder reminder, or industry compliance point.",prompt:"Create a month-end reminder for [AUDIENCE] about [PRODUCT/SERVICE]. Include a 3-point action checklist. Respectful CTA only if action is genuinely needed. No false urgency."},
+    {title:"Monthly Learning — One Useful Skill",desc:"Teach one small skill or knowledge point that builds your credibility as experts.",prompt:"Create a monthly learning post for [AUDIENCE] in [INDUSTRY]. Topic: [CHOOSE ONE GENUINE EXPERTISE TOPIC YOUR COMPANY HAS]. 3 steps, simple example, visual idea. Mark if any fact needs expert verification."},
+    {title:"Monthly Appreciation — Thank Someone",desc:"Recognize customers, partners, suppliers, or team with genuine specificity.",prompt:"Write a monthly appreciation message from [COMPANY] for [AUDIENCE]. Mention [REAL REASON]. Do not assume personal details. Keep it warm and specific, not generic 'you are our best customer.'"}
+  ],
+  business:[
+    {title:"New Product Launch",desc:"Explain the customer problem first — then the solution. Never lead with features.",prompt:"Introduce [NEW PRODUCT/SERVICE] from [COMPANY]. Explain: the customer problem it solves, how it works, who it's for, one genuine differentiator, and honest limitations. No unsupported superlatives."},
+    {title:"Order Delivered — After-Sales Care",desc:"Care after the sale earns the next order. A useful follow-up message, not an upsell.",prompt:"Write a post-delivery message for a customer who received [PRODUCT]. Include: setup tip or guide, support contact, one useful care instruction. Service-first, non-pushy. Invite feedback politely."},
+    {title:"Customer Anniversary",desc:"Celebrate a real customer milestone with genuine warmth.",prompt:"Write a short message for customer who [DESCRIBE REAL MILESTONE — 1st year, 10th order, etc.]. Be warm, specific. Do not disclose confidential info or publish without permission."},
+    {title:"Business Anniversary",desc:"Reflect on your journey — with verified numbers and genuine gratitude.",prompt:"Create a business anniversary message for [COMPANY], [VERIFIED YEARS] years in business. Use only verified facts: [TRUE MILESTONES]. Thank customers and team genuinely. Do not invent metrics or achievements."}
+  ],
+  observance:[
+    {title:"Women's Day — Genuinely",desc:"Celebrate real contribution. No stereotypes. No token product pitch.",prompt:"Create a Women's Day message for [COMPANY] recognizing real contribution and opportunity. If linking to industry, make the connection genuine. Do not use the occasion as a forced sales pitch or rely on clichés."},
+    {title:"National Days — Pride + Purpose",desc:"Independence Day / Republic Day — national pride with a genuine business connection.",prompt:"Create a [REPUBLIC/INDEPENDENCE DAY] message for [COMPANY]. Use the national theme to connect to one genuine value your business stands for — Made in India, local employment, quality craft. Restrained branding. No forced sales."},
+    {title:"Environment Day — Verified Claims Only",desc:"Share one verified sustainable action. Never make unsubstantiated 'eco-friendly' claims.",prompt:"Create an Environment Day post for [COMPANY] using only these verified facts: [YOUR ACTUAL SUSTAINABLE PRACTICES]. One practical tip for audience. No 'eco-friendly' or 'green' claims unless substantiated with data."},
+    {title:"Small Business Day — Local Pride",desc:"Celebrate the real story of local enterprise.",prompt:"Create a Small Business Day message for [COMPANY] celebrating customers, employees, and the local community. Use one true detail: [GENUINE LOCAL IMPACT]. Appreciative, grounded, not self-congratulatory."}
+  ]
+};
+
+const checklist = [
+  "Company name spelling is exactly correct — no typo, no shortened version",
+  "Original logo is high-resolution, sharp, and not distorted by AI",
+  "Website URL is accurate, readable, and clickable in digital formats",
+  "Festival greeting is culturally accurate and respectful",
+  "The industry connection feels natural — not forced",
+  "Every claim in the message is true and verifiable",
+  "Text is readable on a small phone screen (test on Redmi/Realme)",
+  "No invented offers, awards, customer testimonials, or fake scarcity",
+  "WhatsApp message is under 80 words and starts with the festival/occasion",
+  "Video is correct 9:16 aspect ratio and end card has real logo + website",
+  "Message is relevant to THIS recipient group — not a copy-paste to everyone",
+  "Any price or offer mentioned has the actual ₹ amount and valid-till date",
+  "Permission obtained for any customer/employee photo or name used",
+  "Outreach follows WhatsApp broadcast rules (only to existing contacts)",
+  "You would still be happy to have sent this if no sale followed",
+  "Regional language spelling/grammar checked by a native speaker"
+];
+
+// ===== FUNCTIONS =====
+function showCalendar(quarter, btn) {
+  document.querySelectorAll('#calTabs .tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const data = calendar[quarter];
+  const host = document.getElementById('calContent');
+  host.innerHTML = '';
+  const sizes = ['big','big','medium','medium','small','small','big','medium','small','big','big','medium'];
+  data.forEach((f, i) => {
+    const el = document.createElement('div');
+    const cls = sizes[i % sizes.length];
+    el.className = `fest-card ${cls}`;
+    el.innerHTML = `<div class="fest-date">${f.date}</div><h3>${f.title}</h3><p>${f.desc}</p><div class="opportunity-bar"><span class="opp-stars">${f.stars}</span><span>${f.opp}</span></div>`;
+    el.onclick = () => { document.getElementById('calendar').scrollIntoView({behavior:'smooth'}); };
+    host.appendChild(el);
+  });
+}
+
+function showIndustry(key, btn) {
+  document.querySelectorAll('#indTabs .tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const ind = industries[key];
+  const host = document.getElementById('indContent');
+  host.innerHTML = '';
+  ind.cards.forEach((card, i) => {
+    const el = document.createElement('div');
+    el.className = 'industry-card';
+    const pid = `ind_${key}_${i}`;
+    el.innerHTML = `
+      <div class="ind-header">
+        <div class="ind-icon" style="background:${ind.color}">${ind.emoji}</div>
+        <div><h3>${card.title}</h3><div class="ind-type">${card.angle}</div></div>
+      </div>
+      <div class="angle">${card.desc}</div>
+      <div class="example-box">
+        <div class="label" style="margin-bottom:6px">READY PROMPT</div>
+        <div class="prompt" id="${pid}" style="max-height:160px;font-size:11px">${card.prompt}</div>
+        <div class="actions" style="margin-top:8px"><button class="btn btn-primary" onclick="copyText('${pid}')">📋 Copy Prompt</button></div>
+      </div>`;
+    host.appendChild(el);
+  });
+}
+
+function showDays(key, btn) {
+  document.querySelectorAll('#dayTabs .tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const data = weeklyDays[key];
+  const host = document.getElementById('dayContent');
+  host.innerHTML = '';
+  data.forEach((d, i) => {
+    const pid = `day_${key}_${i}`;
+    const el = document.createElement('article');
+    el.className = 'card';
+    el.innerHTML = `
+      <div class="ctop"><div class="ico ico-saffron">📅</div><div><h3>${d.title}</h3><p>${d.desc}</p></div></div>
+      <div class="cbody">
+        <div class="label">COPY-READY PROMPT</div>
+        <div class="prompt" id="${pid}">${d.prompt}</div>
+        <div class="actions"><button class="btn btn-primary" onclick="copyText('${pid}')">📋 Copy Prompt</button></div>
+      </div>`;
+    host.appendChild(el);
+  });
+}
+
+function buildChecklist() {
+  const host = document.getElementById('checklistItems');
+  host.innerHTML = '';
+  checklist.forEach((item, i) => {
+    const el = document.createElement('label');
+    el.className = 'check-item';
+    el.id = `chk_${i}`;
+    el.innerHTML = `<input type="checkbox" onchange="this.closest('.check-item').classList.toggle('checked', this.checked)"> ${item}`;
+    host.appendChild(el);
+  });
+}
+
+function resetChecklist() {
+  document.querySelectorAll('.check-item input').forEach(cb => {
+    cb.checked = false;
+    cb.closest('.check-item').classList.remove('checked');
+  });
+}
+
+function checkAll() {
+  document.querySelectorAll('.check-item input').forEach(cb => {
+    cb.checked = true;
+    cb.closest('.check-item').classList.add('checked');
+  });
+  toast('✅ All items checked — Campaign is ready to send!');
+}
+
+function buildBrief() {
+  const v = id => (document.getElementById(id)||{}).value?.trim() || '';
+  if (!v('company') || !v('products')) {
+    alert('Please add your Company Name and Products/Services first.');
+    return;
+  }
+  const offerLine = v('offer') ? `\nFestival Offer / Scheme: ${v('offer')}` : '\nFestival Offer: [None — pure greeting campaign]';
+  const text = `🎓 FESTIVAL MARKETING MASTER PROMPT
+Generated by भारत SME Festival Marketing Lab
+
+━━━━━━━━━━━━━━━━━━━━━━
+BUSINESS BRIEF
+━━━━━━━━━━━━━━━━━━━━━━
+Company Name: ${v('company')}
+Business Type: ${v('industry')}
+City / Region: ${v('city') || '[ADD YOUR CITY/REGION]'}
+Products / Services: ${v('products')}
+Website / Contact: ${v('website') || '[ADD WEBSITE OR CONTACT]'}
+
+Target Audience: ${v('audience')}
+Festival / Occasion: ${v('moment')}
+Language Preference: ${v('language')}
+Brand Personality: ${v('style')}
+Campaign Goal: ${v('angle')}
+
+Real Competitive Advantage: ${v('strength') || '[ADD WHAT MAKES YOU DIFFERENT]'}${offerLine}
+
+━━━━━━━━━━━━━━━━━━━━━━
+YOUR TASK
+━━━━━━━━━━━━━━━━━━━━━━
+Act as an expert Indian SME marketing strategist who deeply understands Indian festivals, regional culture, B2B and B2C buyer psychology, and the practical constraints of small businesses.
+
+Using ONLY the business facts above, create a complete ${v('moment')} campaign for ${v('company')}.
+
+DELIVER ALL OF THE FOLLOWING:
+
+1. THREE CREATIVE DIRECTIONS
+   a) EMOTIONAL — connects festival feeling to a genuine customer emotion
+   b) PREMIUM — positions the brand as quality, trustworthy, aspirational
+   c) INDUSTRY-SPECIFIC — unique angle only a ${v('industry')} business can use
+
+2. COPY PACKAGE
+   - Main headline (max 7 words)
+   - Festival greeting (max 20 words, ${v('language')})
+   - Soft brand line (max 8 words)
+   - WhatsApp broadcast message (max 60 words, festival first, company second)
+   - Social media caption (max 80 words + 5 relevant hashtags)
+
+3. VISUAL DIRECTION
+   - Poster concept (festival element + industry connection + composition)
+   - WhatsApp Status 9:16 version concept
+   - Color palette with hex codes appropriate to ${v('moment')} and ${v('style')} brand
+
+4. SHORT VIDEO / REEL STORYBOARD (8-10 seconds)
+   - Second-by-second breakdown
+   - Smartphone-friendly version (no professional equipment needed)
+   - On-screen text for each segment
+
+5. ${v('audience').includes('dealer') ? 'DEALER/B2B PARTNER VERSION of the greeting' : 'EXISTING CUSTOMER vs PROSPECT version — two separate messages'}
+
+6. ONE USEFUL CONTENT IDEA (non-promotional, genuinely helpful to ${v('audience')})
+
+7. QUALITY CHECKLIST — what facts must be verified before publishing
+
+━━━━━━━━━━━━━━━━━━━━━━
+CRITICAL RULES
+━━━━━━━━━━━━━━━━━━━━━━
+✅ Use ONLY the facts provided above. Never invent awards, testimonials, client numbers, or claims.
+✅ Festival moment must come FIRST — company promotion must feel natural, never forced.
+✅ Every message must sound like it was written by a real human, not a template.
+✅ All copy must be readable on a phone screen in 3 seconds.
+✅ If creating a visual, leave clear space for actual logo and website (AI may distort text).
+✅ If any specific claim needs verification before publishing, FLAG IT clearly.
+
+Start with the EMOTIONAL creative direction. Let's make ${v('company')}'s ${v('moment')} campaign the one their customers actually remember.`;
+
+  document.getElementById('resultText').textContent = text;
+  document.getElementById('result').style.display = 'block';
+  document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function copyWA() {
+  const v = id => (document.getElementById(id)||{}).value?.trim() || '';
+  const waText = `🎓 WHATSAPP CAMPAIGN PROMPT
+
+Business: ${v('company')} — ${v('industry')}
+Festival: ${v('moment')} | Audience: ${v('audience')}
+Our strength: ${v('strength') || '[ADD YOUR DIFFERENTIATOR]'}
+${v('offer') ? `Offer: ${v('offer')}` : ''}
+
+Write 3 WhatsApp broadcast messages for this festival:
+1. PURE GREETING — warm, personal-feeling, festival first. Max 60 words.
+2. GREETING + VALUE REMINDER — festival wish + one natural business connection. Max 70 words.
+${v('offer') ? `3. GREETING + OFFER — festival wish first, then: ${v('offer')}. Clear T&C. Max 70 words.` : '3. RE-ENGAGEMENT — for customers not heard from in 3+ months. Festival as reason to reconnect. Max 50 words.'}
+
+Language: ${v('language')}. Start each message with the festival/occasion, not the company name. End with: ${v('company')} | ${v('website') || '[YOUR WEBSITE]'}`;
+  
+  const el = document.createElement('textarea');
+  el.value = waText;
+  document.body.appendChild(el);
+  el.select();
+  try { document.execCommand('copy'); toast('💬 WhatsApp Prompt Copied!'); } catch(e) {}
+  el.remove();
+}
+
+function resetBrief() {
+  ['company','products','website','strength','offer','city'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('result').style.display = 'none';
+}
+
+function copyText(id) {
+  const el = document.getElementById(id);
+  const text = el?.innerText || el?.textContent || '';
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => toast('📋 Prompt Copied! Paste in ChatGPT / Claude / Gemini')).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+
+function fallbackCopy(text) {
+  const t = document.createElement('textarea');
+  t.value = text;
+  document.body.appendChild(t);
+  t.select();
+  try { document.execCommand('copy'); toast('📋 Prompt Copied!'); } catch(e) { alert('Please select and copy the text manually.'); }
+  t.remove();
+}
+
+function jumpToFest(name, btn) {
+  document.querySelectorAll('.cfest').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('calendar').scrollIntoView({behavior:'smooth'});
+  // Pre-select Q4 for most festivals
+  const q4Fests = ['diwali','dhanteras','navratri','bhaibij','chhath','christmas','newyear'];
+  if (q4Fests.includes(name)) {
+    const calBtn = document.querySelector('#calTabs .tab');
+    if (calBtn) { calBtn.click(); }
+  }
+}
+
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'flex';
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => t.style.display = 'none', 300);
+  }, 2400);
+}
+
+// STICKY NAV HIGHLIGHT
+const navLinks = [...document.querySelectorAll('nav a')];
+if ('IntersectionObserver' in window) {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        const a = navLinks.find(a => a.getAttribute('href') === '#' + e.target.id);
+        if (a) document.getElementById('crumbText').textContent = a.textContent.trim();
+      }
+    });
+  }, {rootMargin: '-15% 0px -65% 0px'});
+  navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean).forEach(s => obs.observe(s));
+}
+
+// INIT
+showCalendar('q4', document.querySelector('#calTabs .tab'));
+showIndustry('textiles', document.querySelector('#indTabs .tab'));
+showDays('weekly', document.querySelector('#dayTabs .tab'));
+buildChecklist();
+</script>
+</body>
+</html>
